@@ -1,0 +1,11 @@
+/home/jloffredo/Escritorio/UTN/TP_Superior/TPMatSup/obj/Debug/netcoreapp3.0/TPMatSup.csprojAssemblyReference.cache
+/home/jloffredo/Escritorio/UTN/TP_Superior/TPMatSup/obj/Debug/netcoreapp3.0/TPMatSup.AssemblyInfoInputs.cache
+/home/jloffredo/Escritorio/UTN/TP_Superior/TPMatSup/obj/Debug/netcoreapp3.0/TPMatSup.AssemblyInfo.cs
+/home/jloffredo/Escritorio/UTN/TP_Superior/TPMatSup/bin/Debug/netcoreapp3.0/TPMatSup
+/home/jloffredo/Escritorio/UTN/TP_Superior/TPMatSup/bin/Debug/netcoreapp3.0/TPMatSup.deps.json
+/home/jloffredo/Escritorio/UTN/TP_Superior/TPMatSup/bin/Debug/netcoreapp3.0/TPMatSup.runtimeconfig.json
+/home/jloffredo/Escritorio/UTN/TP_Superior/TPMatSup/bin/Debug/netcoreapp3.0/TPMatSup.runtimeconfig.dev.json
+/home/jloffredo/Escritorio/UTN/TP_Superior/TPMatSup/bin/Debug/netcoreapp3.0/TPMatSup.dll
+/home/jloffredo/Escritorio/UTN/TP_Superior/TPMatSup/bin/Debug/netcoreapp3.0/TPMatSup.pdb
+/home/jloffredo/Escritorio/UTN/TP_Superior/TPMatSup/obj/Debug/netcoreapp3.0/TPMatSup.dll
+/home/jloffredo/Escritorio/UTN/TP_Superior/TPMatSup/obj/Debug/netcoreapp3.0/TPMatSup.pdb
