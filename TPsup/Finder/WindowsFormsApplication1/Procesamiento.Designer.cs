@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.gridResultados = new System.Windows.Forms.DataGridView();
             this.buttonContinuar = new System.Windows.Forms.Button();
             this.atrasButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.gridResultados)).BeginInit();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -45,15 +44,6 @@
             this.label1.Size = new System.Drawing.Size(126, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Resultados:";
-            // 
-            // gridResultados
-            // 
-            this.gridResultados.AllowUserToAddRows = false;
-            this.gridResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridResultados.Location = new System.Drawing.Point(12, 74);
-            this.gridResultados.Name = "gridResultados";
-            this.gridResultados.Size = new System.Drawing.Size(458, 231);
-            this.gridResultados.TabIndex = 1;
             // 
             // buttonContinuar
             // 
@@ -83,20 +73,27 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(31, 82);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(439, 26);
+            this.textBox1.TabIndex = 5;
+            // 
             // Procesamiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(506, 362);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.atrasButton);
             this.Controls.Add(this.buttonContinuar);
-            this.Controls.Add(this.gridResultados);
             this.Controls.Add(this.label1);
             this.Name = "Procesamiento";
             this.Text = "Procesamiento";
             this.Load += new System.EventHandler(this.Procesamiento_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.gridResultados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -105,9 +102,9 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView gridResultados;
         private System.Windows.Forms.Button buttonContinuar;
         private System.Windows.Forms.Button atrasButton;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

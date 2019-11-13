@@ -44,6 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdvertenciaXinvalido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdvertenciaXinvalido.Designer.cs">
+      <DependentUpon>AdvertenciaXinvalido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lagrange.cs" />
     <Compile Include="IngresoDatos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +71,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdvertenciaXinvalido.resx">
+      <DependentUpon>AdvertenciaXinvalido.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IngresoDatos.resx">
       <DependentUpon>IngresoDatos.cs</DependentUpon>
     </EmbeddedResource>

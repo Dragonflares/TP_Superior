@@ -9,3 +9,16 @@ C:\Users\German\Desktop\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\De
 C:\Users\German\Desktop\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
 C:\Users\German\Desktop\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.IngresoDatos.resources
 C:\Users\German\Desktop\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Procesamiento.resources
+D:\Documentos\TP\TP_Superior\TPsup\Finder\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+D:\Documentos\TP\TP_Superior\TPsup\Finder\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+D:\Documentos\TP\TP_Superior\TPsup\Finder\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+D:\Documentos\TP\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojAssemblyReference.cache
+D:\Documentos\TP\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.IngresoDatos.resources
+D:\Documentos\TP\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Inicio.resources
+D:\Documentos\TP\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Procesamiento.resources
+D:\Documentos\TP\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+D:\Documentos\TP\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.cache
+D:\Documentos\TP\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.CoreCompileInputs.cache
+D:\Documentos\TP\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+D:\Documentos\TP\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+D:\Documentos\TP\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AdvertenciaXinvalido.resources

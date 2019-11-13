@@ -36,26 +36,52 @@ namespace WindowsFormsApplication1
         {
             String x = puntoX.Text;
             String y = puntoY.Text;
-            table.Rows.Add(x, y);
+            Boolean match = false;
+            if(x == "" || y == "")
+            {
+                new AdvertenciaXinvalido("Usted ingresó un valor vacío.").Show(this);
+            }
+            else
+            {
+                foreach (DataGridViewRow row in table.Rows)
+                {
+                    if (Convert.ToDouble(row.Cells["X"].Value) == Convert.ToDouble(x))
+                    {
+                        match = true;
+                        break;
+                    }
+                }
+                if(match)
+                {
+                    new AdvertenciaXinvalido("Usted ingresó un valor de x repetido.").Show(this);
+                    puntoY.Text = "";
+                    puntoX.Text = "";
+                }
+                else
+                {
+                    table.Rows.Add(x, y);
+                    puntoY.Text = "";
+                    puntoX.Text = "";
+                }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             int numRows = table.Rows.Count;
-            double[] arrayX = new double[numRows];
-            double[,] matrizY = new double[numRows, numRows];
+            int[][] matrizXY = new int[numRows][];
+
+            int i = 0;
             foreach (DataGridViewRow row in table.Rows)
             {
-
-                
-                int i = 0;
-                matrizY[i, 0] = Convert.ToDouble(row.Cells["Y"].Value);
-                arrayX[i] = Convert.ToDouble(row.Cells["X"].Value);
-                i++;
-
-                 
+               
+                int[] auxiliar = new int[2];
+                auxiliar[0] = (int)Convert.ToInt64(row.Cells["X"].Value);
+                auxiliar[1] = (int)Convert.ToInt64(row.Cells["Y"].Value);
+                matrizXY[i] = auxiliar;
+                i++; 
             }
-            new Procesamiento(arrayX, matrizY).Show(this);
+            new Procesamiento(matrizXY).Show(this);
 
             
         }

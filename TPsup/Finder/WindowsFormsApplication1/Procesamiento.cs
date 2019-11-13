@@ -8,15 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace WindowsFormsApplication1
 {
     public partial class Procesamiento : Form
     {
-        public Procesamiento( double[] _arrayX,double[,] _matrizY )
+        public Procesamiento(int[][] _matrizXY )
         {
             InitializeComponent();
-            double[] arrayX = _arrayX;
-            double[,] matrizY = _matrizY;
+            int[][] matrizXY = _matrizXY;
+            Lagrange calculator = new Lagrange();
+            String resultado = calculator.Calcular(matrizXY);
+            textBox1.Text = resultado;
         }
 
         private void button1_Click(object sender, EventArgs e)
