@@ -39,31 +39,24 @@ namespace TPMatSup
             // La matriz y[,] es para la tabla de diferencias finitas
             // con y[,0] para los valores de Y=f(x) respectivos a cada X
             */
-            Console.WriteLine("Newton Gregory");
+            Console.WriteLine("Calculo mediante Newton Gregory");
 
 
             //Valores de X
-            double[] x = { 1, 2, 3, 4 };
+            double[] x = { 0,1,2,3};
             // Cantidad de numeros de prueba
             int n = x.Length;
-
-
-            
             double[,] y = new double[n, n];
-            /*y[0, 0] = 4;
-            y[1, 0] = 15;
-            y[2, 0] = 40;
-            y[3, 0] = 85;*/
             y[0, 0] = 1;
             y[1, 0] = 1;
             y[2, 0] = 2;
             y[3, 0] = 5;
 
 
-            var ng1 = new NewtonGregory();
-            ng1.calcularValoresProgresivos(x, y);
+            var ng1 = new NewtonGregory(x, y);
+            ng1.calcularValoresProgresivos();
             Console.WriteLine("Obtengo los coeficientes de la tabla y calculo la suma de polinomios");
-            List<Polinomio> listaPolinomios = ng1.obtenerListaDePolinomios(x, ng1.obtenerCoeficientes(n, y));
+            List<Polinomio> listaPolinomios = ng1.obtenerListaDePolinomios();
             ng1.calcularPolinomioEn(10, listaPolinomios);
 
         }
