@@ -24,8 +24,8 @@ namespace WindowsFormsApplication1
             textBox1.Text = metodo;
             label3.Visible = false;
             button3.Visible = false;
-            listView1.Visible = false;
-            textBox2.Visible = false;
+            listView1.Visible = true;
+            txtPolinomioResultado.Visible = true;
             label5.Visible = false;
             label6.Visible = false;
             label7.Visible = false;
@@ -42,6 +42,62 @@ namespace WindowsFormsApplication1
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+        private void label8_Click(object sender, EventArgs e) { }
+        private void button3_Click_1(object sender, EventArgs e) { }
+        private void button2_Click_1(object sender, EventArgs e) {
+
+            int numRows = table.Rows.Count;
+            int[][] matrizXY = new int[numRows][];
+
+            int i = 0;
+            foreach (DataGridViewRow row in table.Rows)
+            {
+
+                int[] auxiliar = new int[2];
+                auxiliar[0] = (int)Convert.ToInt64(row.Cells["X"].Value);
+                auxiliar[1] = (int)Convert.ToInt64(row.Cells["Y"].Value);
+                matrizXY[i] = auxiliar;
+                i++;
+            }
+            matriz = matrizXY;
+
+
+            int cantidadDeElementos = table.Rows.Count;
+            double[] x = new double[cantidadDeElementos];
+            double[,] y = new double[cantidadDeElementos, cantidadDeElementos];
+            for (int j = 0; j < cantidadDeElementos; j++)
+            {
+                x[j] = Convert.ToDouble(matriz[j][0]);
+                y[j, 0] = Convert.ToDouble(matriz[j][1]);
+
+            }
+
+            //Double[] x; con valores de x
+            //Double[,] y con los valores de y en la columna 0
+            NewtonGregory newtonGregory = new NewtonGregory(x, y);
+            txtPolinomioResultado.Visible = true;
+            listView1.Visible = true;
+            if (comboBox1.Text == "Progresivo")
+            {
+                newtonGregory.calcularValoresProgresivos();
+                List<Polinomio> listaPolinomios = newtonGregory.obtenerListaDePolinomios();
+                for (int j = 0; j < cantidadDeElementos; j++)
+                {
+                    if ((j + 1) < cantidadDeElementos)
+                    {
+                        txtPolinomioResultado.Text += listaPolinomios[j] + " + ";
+                    }
+                    else
+                    {
+                        txtPolinomioResultado.Text += listaPolinomios[j];
+                    }
+                    
+                }
+
+
+
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -96,17 +152,18 @@ namespace WindowsFormsApplication1
             matriz = matrizXY;
             label3.Visible = true;
             button3.Visible = true;
-            textBox2.Visible = true;
+            txtPolinomioResultado.Visible = true;
             label5.Visible = true;
             label6.Visible = true;
             label7.Visible = true;
             textBox3.Visible = true;
             textBox4.Visible = true;
             button5.Visible = true;
-            NewtonGregory lagrangecalculator = new NewtonGregory();
+            
+            
           //  textBox2.Text = lagrangecalculator.Calcular(matrizXY);
             button2.Text = "Recalcular";
-            listView1.Visible = false;
+            listView1.Visible = true;
             pasosmostrados = false;
 
         }
@@ -115,7 +172,7 @@ namespace WindowsFormsApplication1
         {
             if (pasosmostrados)
             {
-                listView1.Visible = false;
+                listView1.Visible = true;
                 foreach (ListViewItem item in listView1.Items)
                 {
                     listView1.Items.Remove(item);
@@ -166,11 +223,6 @@ namespace WindowsFormsApplication1
                     MessageBox.Show("Tabla sin puntos", "ERROR",
                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
 
         }
     }   

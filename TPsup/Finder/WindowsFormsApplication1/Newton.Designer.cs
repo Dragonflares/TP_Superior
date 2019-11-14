@@ -1,4 +1,6 @@
-﻿namespace WindowsFormsApplication1
+﻿using System;
+
+namespace WindowsFormsApplication1
 {
     partial class Newton
     {
@@ -34,7 +36,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtPolinomioResultado = new System.Windows.Forms.TextBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -109,16 +111,18 @@
             this.textBox4.Size = new System.Drawing.Size(75, 20);
             this.textBox4.TabIndex = 38;
             // 
-            // textBox2
+            // txtPolinomioResultado
             // 
-            this.textBox2.Location = new System.Drawing.Point(48, 322);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(207, 20);
-            this.textBox2.TabIndex = 37;
+            this.txtPolinomioResultado.Location = new System.Drawing.Point(48, 322);
+            this.txtPolinomioResultado.Name = "txtPolinomioResultado";
+            this.txtPolinomioResultado.ReadOnly = true;
+            this.txtPolinomioResultado.Size = new System.Drawing.Size(207, 20);
+            this.txtPolinomioResultado.TabIndex = 37;
+            this.txtPolinomioResultado.TextChanged += new System.EventHandler(this.txtPolinomioResultado_TextChanged);
             // 
             // listView1
             // 
+            this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(48, 364);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(207, 72);
@@ -143,6 +147,7 @@
             this.button3.TabIndex = 34;
             this.button3.Text = "Mostrar pasos";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // label4
             // 
@@ -178,6 +183,7 @@
             this.button2.TabIndex = 30;
             this.button2.Text = "Calcular";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // label2
             // 
@@ -292,7 +298,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtPolinomioResultado);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button3);
@@ -315,6 +321,11 @@
 
         }
 
+        private void txtPolinomioResultado_TextChanged(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
+
         #endregion
 
         private System.Windows.Forms.Button button5;
@@ -323,7 +334,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPolinomioResultado;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button3;

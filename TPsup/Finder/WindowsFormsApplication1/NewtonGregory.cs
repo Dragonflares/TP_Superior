@@ -1,16 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
     class NewtonGregory
     {
+        double[] x;
+        double[,] y;
+        int cantidadDeElementos;
 
-        //Tengo que tener los coeficientes como valores publicos
-
+        public NewtonGregory(double[] valoresX, double[,] matrizY)
+        {
+            x = valoresX;
+            y = matrizY;
+            cantidadDeElementos = x.Length;
+        }
         static double calculoCoeficienteA(double u, int n)
         {
             double temp = u;
@@ -29,12 +34,12 @@ namespace WindowsFormsApplication1
         }
 
 
-        public void calcularValoresProgresivos(double[] x, double[,] y)
+        public void calcularValoresProgresivos()
         {
 
             Console.WriteLine("Muestro tabla de diferencias finitas");
             // Calculo de la tabla de diferencias finitas
-            for (int i = 1; i < x.Length; i++)
+            for (int i = 1; i < cantidadDeElementos; i++)
             {
                 for (int j = 0; j < x.Length - i; j++)
 
@@ -43,37 +48,39 @@ namespace WindowsFormsApplication1
 
             }
 
-            this.tablaDeDiferencias(x, y);
+            this.tablaDeDiferencias();
         }
 
-        public void tablaDeDiferencias(double[] x, double[,] y)
+        // Funcion que recorre la matriz mostrando los valores para la tabla del formulario
+        public void tablaDeDiferencias()
         {
 
-            int cantidadDeValores = x.Length;
-            // Muestro la tabla de diferencias
-            for (int i = 0; i < cantidadDeValores; i++)
+            
+            for (int i = 0; i < cantidadDeElementos; i++)
             {
                 Console.Write(x[i] + "\t");
-                for (int j = 0; j < cantidadDeValores - i; j++)
+                for (int j = 0; j < cantidadDeElementos - i; j++)
                     Console.Write(y[i, j] + "\t");
                 Console.WriteLine();
             }
         }
 
-        public void obtenerPolinomio(int cantidadDeValores, double[,] y)
+        public void obtenerPolinomio()
         {
 
             //Obtengo los valores de la diagonal que son los coeficientes obtenidos
             //Ordenados de A0 , A1, ...,An
-            double[] coeficientes = new double[cantidadDeValores];
-            coeficientes = obtenerCoeficientes(cantidadDeValores, y);
+            double[] coeficientes = new double[cantidadDeElementos];
+            coeficientes = obtenerCoeficientes();
 
             //Voy a tener que armar "cantidadDeValores" terminos para armar el polinomio intermedio
             //y luego resolver la multiplicación
         }
 
-        public List<Polinomio> obtenerListaDePolinomios(double[] x, double[] coeficientes)
+        public List<Polinomio> obtenerListaDePolinomios()
         {
+
+            double[] coeficientes = obtenerCoeficientes();
             List<Polinomio> polinomios = new List<Polinomio>();
 
             //Agrego el coeficiente que no multiplica a un (X-Xn)
@@ -84,17 +91,18 @@ namespace WindowsFormsApplication1
 
             for (int i = 1; i < coeficientes.Length; i++)
             {
-                polinomios.Add(obtenerPolMultiplicadoHasta(i, x) * coeficientes[i]);
+                polinomios.Add(obtenerPolMultiplicadoHasta(i) * coeficientes[i]);
 
             }
-            for (int j = 0; j < coeficientes.Length; j++)
+            /*for (int j = 0; j < coeficientes.Length; j++)
             {
                 //Arreglar ese +
                 Console.Write(polinomios[j] + " + ");
-            }
+            }*/
 
             return polinomios;
-            /*Polinomio polinomioFinal = null;
+            /*Suma de los polinomios que rompia por la clase Polinomio
+             * Polinomio polinomioFinal = null;
 
 
             for (int j = 0; j < polinomios.Count-1;j++)
@@ -110,9 +118,9 @@ namespace WindowsFormsApplication1
                     
                 }
             }
-            Console.Write("FInall: " + polinomioFinal);*/
+            Console.Write("Final: " + polinomioFinal);*/
         }
-        public Polinomio obtenerPolMultiplicadoHasta(int posicion, double[] x)
+        public Polinomio obtenerPolMultiplicadoHasta(int posicion)
         {
             Polinomio polinomioTemp;
             Polinomio terminoPolinomioFinal = null;
@@ -134,12 +142,13 @@ namespace WindowsFormsApplication1
             //Console.Write(terminoPolinomioFinal);
             return terminoPolinomioFinal;
         }
-        public double[] obtenerCoeficientes(int cantidadDeValores, double[,] y)
+        public double[] obtenerCoeficientes()
         {
-            double h = 1;
-            double[] coeficientes = new double[cantidadDeValores];
 
-            for (int i = 0; i < cantidadDeValores; i++)
+            double h = 1;
+            double[] coeficientes = new double[cantidadDeElementos];
+
+            for (int i = 0; i < cantidadDeElementos; i++)
             {
                 coeficientes[i] = Math.Round(y[0, i] / (factorial(i) * Math.Pow(h, i)), 3);
             }
