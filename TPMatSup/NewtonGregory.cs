@@ -29,14 +29,13 @@ namespace TPMatSup
 
         public void calcularValoresProgresivos(double[] x, double[,] y){
 
-           
+            Console.WriteLine("Muestro tabla de diferencias finitas");
             // Calculo de la tabla de diferencias finitas
             for (int i = 1; i < x.Length; i++)
             {
                 for (int j = 0; j < x.Length - i; j++)
-                    //Resta valor Yi - Y(i-1)
-                    //Dividir por los valores correspondientes de X
-                    y[j, i] = y[j + 1, i - 1] - y[j, i - 1];
+                    
+                    y[j, i] = (y[j + 1, i - 1] - y[j, i - 1]);
 
 
             }
@@ -70,7 +69,7 @@ namespace TPMatSup
             //y luego resolver la multiplicación
         }
 
-        public void obtenerPolinomioIntermedio(double[] x, double[] coeficientes)
+        public List<Polinomio> obtenerListaDePolinomios(double[] x, double[] coeficientes)
         {
             List<Polinomio> polinomios = new List<Polinomio>();
             
@@ -85,10 +84,17 @@ namespace TPMatSup
                polinomios.Add(obtenerPolMultiplicadoHasta(i, x) * coeficientes[i]);
                 
             }
-            Polinomio polinomioFinal = null;
+            for (int j = 0; j<coeficientes.Length;j++)
+            {
+                //Arreglar ese +
+                Console.Write(polinomios[j] + " + ");
+            }
+
+            return polinomios;
+            /*Polinomio polinomioFinal = null;
 
 
-            for (int j = 0; j < polinomios.Count;j++)
+            for (int j = 0; j < polinomios.Count-1;j++)
             {
                 if (polinomioFinal == null)
                 {
@@ -96,15 +102,12 @@ namespace TPMatSup
                 }
                 else
                 {
-                    //Si no es el coeficiente 0
-                    //if (polinomios[j].coeficiente[0] != 0)
-                    //{
-                        polinomioFinal = (polinomioFinal + polinomios[j]);
-                    //}
+
+                    polinomioFinal += polinomios[j];
                     
                 }
             }
-            Console.Write("FInall: " + polinomioFinal);
+            Console.Write("FInall: " + polinomioFinal);*/
         }
         public Polinomio obtenerPolMultiplicadoHasta(int posicion, double[] x)
         {
@@ -113,7 +116,7 @@ namespace TPMatSup
             for (int i = 0; i < posicion; i++)
             {
                 //Simula ser un polinomio de la forma (x-a)
-                double[] aux = { 1, x[i]*(-1) };
+                double[] aux = {x[i]*(-1), 1};
                 polinomioTemp = new Polinomio(aux);
                 if (terminoPolinomioFinal == null)
                 {
@@ -125,22 +128,17 @@ namespace TPMatSup
                 }
 
             }
-            Console.Write(terminoPolinomioFinal);
+            //Console.Write(terminoPolinomioFinal);
             return terminoPolinomioFinal;
         }
         public double[] obtenerCoeficientes(int cantidadDeValores, double[,] y)
         {
+            double h = 1;
             double[] coeficientes = new double[cantidadDeValores];
 
             for (int i = 0; i < cantidadDeValores; i++)
             {
-                for (int j = 0; j < cantidadDeValores; j++)
-                {
-                    if (i == j)
-                    {
-                        coeficientes[i] = y[i, j];
-                    }
-                }
+                coeficientes[i] = Math.Round(y[0, i] / (factorial(i) * Math.Pow(h, i)), 3);
             }
             return coeficientes;
         }
@@ -151,19 +149,49 @@ namespace TPMatSup
         //Recibo el array de valores de X
         //la matriz de valores en Y
         //El valor a interpolar
-        public void calcularEnPunto(double[] x, double[,] y, double valorAInterpolar)
+        /*public void calcularEnPunto(double[] x, double[,] y, double valorAInterpolar)
         {
             // obtengo el valor del An y sumo
             double sum = y[0, 0];
+            double h = x[1]-x[0];
             double a = (valorAInterpolar - x[0]) / (x[1] - x[0]);
             for (int i = 1; i < x.Length; i++)
             {
+                //Hay que calcular la distancia entre los puntos de x
                 sum = sum + (calculoCoeficienteA(a, i) * y[0, i]) /
-                                        factorial(i);
+                                        (factorial(i-1)*(Math.Pow(h,i-1)));
             }
 
             Console.WriteLine("\n Interpolacion en " + valorAInterpolar + " es " + Math.Round(sum, 6));
+        }*/
+
+        public void calcularPolinomioEn(double punto, List<Polinomio> listaPolinomios)
+        {
+
+            double acumulador = 0;
+
+            for(int i = 0; i < listaPolinomios.Count; i++)
+            {
+                acumulador += evaluarUnPolinomio(listaPolinomios[i], punto);
+            }
+            Console.WriteLine(acumulador);
+
         }
+        public double evaluarUnPolinomio(Polinomio poli, double punto)
+        {
+            int grado = 0;
+            double[] coeficientes = poli.coeficiente;
+            double suma = 0;
+
+            for (int i =0;i<=poli.grado;i++)
+            {
+                suma += coeficientes[i] * Math.Pow(punto, grado);
+                grado++;
+            }
+            return suma;
+        }
+
+
 
     }
 }
