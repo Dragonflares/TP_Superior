@@ -48,7 +48,7 @@ namespace WindowsFormsApplication1
             String x = puntoX.Text;
             String y = puntoY.Text;
             Boolean match = false;
-            if(x == "" || y == "")
+            if (x == "" || y == "")
             {
                 new AdvertenciaXinvalido("Usted ingresó un valor vacío.").Show(this);
             }
@@ -62,7 +62,7 @@ namespace WindowsFormsApplication1
                         break;
                     }
                 }
-                if(match)
+                if (match)
                 {
                     new AdvertenciaXinvalido("Usted ingresó un valor de x repetido.").Show(this);
                     puntoY.Text = "";
@@ -85,12 +85,12 @@ namespace WindowsFormsApplication1
             int i = 0;
             foreach (DataGridViewRow row in table.Rows)
             {
-               
+
                 int[] auxiliar = new int[2];
                 auxiliar[0] = (int)Convert.ToInt64(row.Cells["X"].Value);
                 auxiliar[1] = (int)Convert.ToInt64(row.Cells["Y"].Value);
                 matrizXY[i] = auxiliar;
-                i++; 
+                i++;
             }
             matriz = matrizXY;
             label3.Visible = true;
@@ -106,7 +106,7 @@ namespace WindowsFormsApplication1
             textBox2.Text = lagrangecalculator.Calcular(matrizXY);
             button2.Text = "Recalcular";
 
-            
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -114,7 +114,7 @@ namespace WindowsFormsApplication1
             if (pasosmostrados)
             {
                 listView1.Visible = false;
-                foreach(ListViewItem item in listView1.Items)
+                foreach (ListViewItem item in listView1.Items)
                 {
                     listView1.Items.Remove(item);
                 }
@@ -137,7 +137,7 @@ namespace WindowsFormsApplication1
         private void button5_Click(object sender, EventArgs e)
         {
             Lagrange lagrangecalculator = new Lagrange();
-            if(textBox4.Text == "")
+            if (textBox4.Text == "")
             {
                 new AdvertenciaXinvalido("Usted ingresó no ingresó un valor de k.").Show(this);
             }
