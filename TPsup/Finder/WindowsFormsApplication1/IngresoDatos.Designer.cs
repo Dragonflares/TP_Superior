@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.table = new System.Windows.Forms.DataGridView();
-            this.X = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Y = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.puntoX = new System.Windows.Forms.TextBox();
             this.puntoY = new System.Windows.Forms.TextBox();
@@ -50,6 +48,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
+            this.X = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Y = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Borrar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,28 +61,14 @@
             this.table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.table.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.X,
-            this.Y});
+            this.Y,
+            this.Borrar});
             this.table.Location = new System.Drawing.Point(46, 115);
             this.table.Name = "table";
             this.table.ReadOnly = true;
             this.table.Size = new System.Drawing.Size(348, 159);
             this.table.TabIndex = 1;
-            // 
-            // X
-            // 
-            this.X.DataPropertyName = "X";
-            this.X.HeaderText = "X";
-            this.X.Name = "X";
-            this.X.ReadOnly = true;
-            this.X.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Y
-            // 
-            this.Y.DataPropertyName = "Y";
-            this.Y.HeaderText = "Y";
-            this.Y.Name = "Y";
-            this.Y.ReadOnly = true;
-            this.Y.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.table_CellContentClick);
             // 
             // button1
             // 
@@ -253,6 +240,28 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // X
+            // 
+            this.X.DataPropertyName = "X";
+            this.X.HeaderText = "X";
+            this.X.Name = "X";
+            this.X.ReadOnly = true;
+            this.X.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Y
+            // 
+            this.Y.DataPropertyName = "Y";
+            this.Y.HeaderText = "Y";
+            this.Y.Name = "Y";
+            this.Y.ReadOnly = true;
+            this.Y.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Borrar
+            // 
+            this.Borrar.HeaderText = "Borrar";
+            this.Borrar.Name = "Borrar";
+            this.Borrar.ReadOnly = true;
+            // 
             // IngresoDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -290,8 +299,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView table;
-        private System.Windows.Forms.DataGridViewTextBoxColumn X;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Y;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox puntoX;
         private System.Windows.Forms.TextBox puntoY;
@@ -311,5 +318,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn X;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Y;
+        private System.Windows.Forms.DataGridViewButtonColumn Borrar;
     }
 }

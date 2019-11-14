@@ -105,7 +105,8 @@ namespace WindowsFormsApplication1
             Lagrange lagrangecalculator = new Lagrange();
             textBox2.Text = lagrangecalculator.Calcular(matrizXY);
             button2.Text = "Recalcular";
-
+            listView1.Visible = false;
+            pasosmostrados = false;
 
         }
 
@@ -147,6 +148,24 @@ namespace WindowsFormsApplication1
                 textBox3.Text = lagrangecalculator.CalcularEnPunto(k, matriz).ToString();
             }
 
+        }
+
+        private void table_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+            if (e.ColumnIndex == table.Columns["Borrar"].Index)
+            {
+
+                if (table.Rows.Count  > 0)
+                    table.Rows.RemoveAt(e.RowIndex);
+                else
+                    MessageBox.Show("Tabla sin puntos", "ERROR",
+               MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }
