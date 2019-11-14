@@ -35,3 +35,4 @@ D:\Drizz\Documentos\Visual Studio git repos\TP_Superior\TPsup\Finder\WindowsForm
 C:\Users\German\Desktop\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojAssemblyReference.cache
 C:\Users\German\Desktop\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AdvertenciaXinvalido.resources
 C:\Users\German\Desktop\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.CoreCompileInputs.cache
+C:\Users\German\Desktop\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Newton.resources

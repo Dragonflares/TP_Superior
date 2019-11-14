@@ -19,7 +19,15 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new IngresoDatos(comboBox1.Text).Show(this);
+            String valor = comboBox1.Text;
+
+            if (valor == "Lagrange") {
+                new IngresoDatos(comboBox1.Text).Show(this);
+            }else if(valor == "Newton-Gregory") {
+                new Newton(comboBox1.Text).Show(this);
+
+
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

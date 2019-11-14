@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TPMatSup
+namespace WindowsFormsApplication1
 {
+
     public class Polinomio
     {
 
@@ -271,6 +272,8 @@ namespace TPMatSup
                     grado = "";
                     x = "1";
                 }
+
+
                 polinomio += signo + coeficiente + x + grado;
             }
             if (polinomio == "")
@@ -279,8 +282,11 @@ namespace TPMatSup
             }
             else
             {
+
                 return polinomio;
             }
         }
     }
+
+
 }
