@@ -43,14 +43,14 @@ namespace TPMatSup
 
 
             //Valores de X
-            double[] x = { 0,1,2,3};
+            double[] x = { 1, 2, 3, 4};
             // Cantidad de numeros de prueba
             int n = x.Length;
             double[,] y = new double[n, n];
-            y[0, 0] = 1;
-            y[1, 0] = 1;
-            y[2, 0] = 2;
-            y[3, 0] = 5;
+            y[0, 0] = 4;
+            y[1, 0] = 15;
+            y[2, 0] = 40;
+            y[3, 0] = 85;
 
 
             var ng1 = new NewtonGregory(x, y);
@@ -58,6 +58,12 @@ namespace TPMatSup
             Console.WriteLine("Obtengo los coeficientes de la tabla y calculo la suma de polinomios");
             List<Polinomio> listaPolinomios = ng1.obtenerListaDePolinomios();
             ng1.calcularPolinomioEn(10, listaPolinomios);
+
+            var ng2 = new NewtonGregoryRegre(x, y);
+            ng2.calcularValoresRegresivos();
+            List<Polinomio> listaPolinomiosRegre = ng2.obtenerListaDePolinomios();
+            ng2.calcularPolinomioEn(10, listaPolinomiosRegre);
+
 
         }
     }
