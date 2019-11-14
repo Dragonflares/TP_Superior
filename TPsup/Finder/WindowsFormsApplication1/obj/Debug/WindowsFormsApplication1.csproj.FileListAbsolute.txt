@@ -22,3 +22,15 @@ D:\Documentos\TP\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\Win
 D:\Documentos\TP\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 D:\Documentos\TP\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
 D:\Documentos\TP\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AdvertenciaXinvalido.resources
+D:\Drizz\Documentos\Visual Studio git repos\TP_Superior\TPsup\Finder\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+D:\Drizz\Documentos\Visual Studio git repos\TP_Superior\TPsup\Finder\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+D:\Drizz\Documentos\Visual Studio git repos\TP_Superior\TPsup\Finder\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+D:\Drizz\Documentos\Visual Studio git repos\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojAssemblyReference.cache
+D:\Drizz\Documentos\Visual Studio git repos\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AdvertenciaXinvalido.resources
+D:\Drizz\Documentos\Visual Studio git repos\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.IngresoDatos.resources
+D:\Drizz\Documentos\Visual Studio git repos\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Inicio.resources
+D:\Drizz\Documentos\Visual Studio git repos\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+D:\Drizz\Documentos\Visual Studio git repos\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.cache
+D:\Drizz\Documentos\Visual Studio git repos\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.CoreCompileInputs.cache
+D:\Drizz\Documentos\Visual Studio git repos\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+D:\Drizz\Documentos\Visual Studio git repos\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
