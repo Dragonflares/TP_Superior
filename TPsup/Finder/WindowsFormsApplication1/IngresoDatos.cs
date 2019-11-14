@@ -31,6 +31,10 @@ namespace WindowsFormsApplication1
             textBox3.Visible = false;
             textBox4.Visible = false;
             button5.Visible = false;
+            textBox5.Visible = false;
+            textBox6.Visible = false;
+            label8.Visible = false;
+            label9.Visible = false;
         }
 
         private void IngresoDatos_Load(object sender, EventArgs e)
@@ -92,7 +96,12 @@ namespace WindowsFormsApplication1
                 matrizXY[i] = auxiliar;
                 i++;
             }
-            matriz = matrizXY;
+            int[][] matrizOrdenada = ordenarMatriz(matrizXY);
+            matriz = matrizOrdenada;
+            if (esEquidistante(matrizOrdenada))
+                textBox5.Text = "Si";
+            else
+                textBox5.Text = "No";
             label3.Visible = true;
             button3.Visible = true;
             textBox2.Visible = true;
@@ -102,8 +111,24 @@ namespace WindowsFormsApplication1
             textBox3.Visible = true;
             textBox4.Visible = true;
             button5.Visible = true;
+            label8.Visible = true;
+            textBox5.Visible = true;
             Lagrange lagrangecalculator = new Lagrange();
-            textBox2.Text = lagrangecalculator.Calcular(matrizXY);
+            string resultado = lagrangecalculator.Calcular(matrizOrdenada);
+            if (button2.Text == "Recalcular")
+            {
+                textBox6.Visible = true;
+                label9.Visible = true;
+                if(textBox2.Text == resultado)
+                {
+                    textBox6.Text = "No";
+                }
+                else
+                {
+                    textBox6.Text = "Si";
+                }
+            }
+            textBox2.Text = resultado;
             button2.Text = "Recalcular";
             listView1.Visible = false;
             pasosmostrados = false;
@@ -166,6 +191,60 @@ namespace WindowsFormsApplication1
                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private int[][] ordenarMatriz(int[][] matrix)
+        {
+            int[] aux = new int[2];
+            int length = matrix.Length;
+            int a = 0;
+            while(a != length)
+            {
+                if(a == 0)
+                {
+                    a++;
+                }
+                else if(matrix[a][0] < matrix[a-1][0])
+                {
+                    aux = matrix[a - 1];
+                    matrix[a - 1] = matrix[a];
+                    matrix[a] = aux;
+                    a--;
+                }
+                else
+                {
+                    a++;
+                }
+            }
+            return matrix;
+        }
+        private Boolean esEquidistante(int[][] matrix)
+        {
+            Boolean result = true;
+            int a = 1;
+            int distance = 0;
+            for(a = 1; a < matrix.Length; a++)
+            {
+                if(distance == 0)
+                {
+                    distance = matrix[a][0] - matrix[a - 1][0];
+                }
+                else
+                {
+                    int newDistance = matrix[a][0] - matrix[a - 1][0];
+                    if(newDistance != distance)
+                    {
+                        result = false;
+                        break;
+                    }
+                }
+            }
+            return result;
         }
     }
 }

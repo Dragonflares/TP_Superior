@@ -93,8 +93,8 @@ namespace WindowsFormsApplication1
                     }
                 }
                 int[][] demasPuntos = listaPuntos.ToArray();
-                int numerador = 1;
-                int denominador = 1;
+                float numerador = 1;
+                float denominador = 1;
                 foreach (int[] punto in demasPuntos)
                 {
 
