@@ -211,6 +211,7 @@ namespace WindowsFormsApplication1
                 grado++;
             }
             return suma;
+
         }
     }
 }
