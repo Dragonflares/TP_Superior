@@ -36,6 +36,8 @@ namespace WindowsFormsApplication1
             textBox6.Visible = false;
             label10.Visible = false;
             label9.Visible = false;
+            coef.Visible = false;
+            textBox2.Visible = false;
         }
 
         private void Newton_Load(object sender, EventArgs e)
@@ -238,11 +240,8 @@ namespace WindowsFormsApplication1
         {
             if (pasosmostrados)
             {
-                listView1.Visible = true;
-                foreach (ListViewItem item in listView1.Items)
-                {
-                    listView1.Items.Remove(item);
-                }
+
+
                 pasosmostrados = false;
             }
             else
@@ -367,6 +366,11 @@ namespace WindowsFormsApplication1
         }
 
         private void button5_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
         {
 
         }

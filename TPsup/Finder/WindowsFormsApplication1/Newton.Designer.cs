@@ -59,12 +59,14 @@ namespace WindowsFormsApplication1
             this.label10 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.coef = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.SuspendLayout();
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(303, 442);
+            this.button5.Location = new System.Drawing.Point(418, 441);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 43;
@@ -74,7 +76,7 @@ namespace WindowsFormsApplication1
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(303, 487);
+            this.textBox3.Location = new System.Drawing.Point(418, 486);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(75, 20);
@@ -85,7 +87,7 @@ namespace WindowsFormsApplication1
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(300, 469);
+            this.label7.Location = new System.Drawing.Point(415, 468);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 15);
             this.label7.TabIndex = 41;
@@ -95,7 +97,7 @@ namespace WindowsFormsApplication1
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(300, 400);
+            this.label6.Location = new System.Drawing.Point(415, 399);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 13);
             this.label6.TabIndex = 40;
@@ -106,7 +108,7 @@ namespace WindowsFormsApplication1
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(304, 355);
+            this.label5.Location = new System.Drawing.Point(419, 354);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(92, 30);
             this.label5.TabIndex = 39;
@@ -115,7 +117,7 @@ namespace WindowsFormsApplication1
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(303, 416);
+            this.textBox4.Location = new System.Drawing.Point(418, 415);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(75, 20);
             this.textBox4.TabIndex = 38;
@@ -126,7 +128,7 @@ namespace WindowsFormsApplication1
             this.txtPolinomioResultado.Location = new System.Drawing.Point(48, 322);
             this.txtPolinomioResultado.Name = "txtPolinomioResultado";
             this.txtPolinomioResultado.ReadOnly = true;
-            this.txtPolinomioResultado.Size = new System.Drawing.Size(207, 20);
+            this.txtPolinomioResultado.Size = new System.Drawing.Size(351, 20);
             this.txtPolinomioResultado.TabIndex = 37;
             this.txtPolinomioResultado.TextChanged += new System.EventHandler(this.txtPolinomioResultado_TextChanged);
             // 
@@ -135,7 +137,7 @@ namespace WindowsFormsApplication1
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(48, 364);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(207, 72);
+            this.listView1.Size = new System.Drawing.Size(310, 119);
             this.listView1.TabIndex = 36;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
@@ -151,7 +153,7 @@ namespace WindowsFormsApplication1
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(303, 320);
+            this.button3.Location = new System.Drawing.Point(418, 319);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(93, 23);
             this.button3.TabIndex = 34;
@@ -299,7 +301,7 @@ namespace WindowsFormsApplication1
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(183, 445);
+            this.label9.Location = new System.Drawing.Point(177, 561);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(70, 30);
             this.label9.TabIndex = 49;
@@ -309,7 +311,7 @@ namespace WindowsFormsApplication1
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(51, 445);
+            this.label10.Location = new System.Drawing.Point(45, 561);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(98, 30);
             this.label10.TabIndex = 48;
@@ -317,7 +319,7 @@ namespace WindowsFormsApplication1
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(186, 482);
+            this.textBox6.Location = new System.Drawing.Point(180, 598);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(75, 20);
@@ -325,17 +327,38 @@ namespace WindowsFormsApplication1
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(54, 482);
+            this.textBox5.Location = new System.Drawing.Point(48, 598);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(110, 20);
             this.textBox5.TabIndex = 46;
             // 
+            // coef
+            // 
+            this.coef.AutoSize = true;
+            this.coef.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.coef.Location = new System.Drawing.Point(45, 505);
+            this.coef.Name = "coef";
+            this.coef.Size = new System.Drawing.Size(136, 15);
+            this.coef.TabIndex = 50;
+            this.coef.Text = "Coeficientes calculados";
+            this.coef.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(48, 526);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(310, 20);
+            this.textBox2.TabIndex = 51;
+            // 
             // Newton
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(559, 514);
+            this.ClientSize = new System.Drawing.Size(527, 624);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.coef);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox6);
@@ -407,5 +430,7 @@ namespace WindowsFormsApplication1
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label coef;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
