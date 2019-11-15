@@ -85,53 +85,59 @@ namespace WindowsFormsApplication1
         {
             int numRows = table.Rows.Count;
             int[][] matrizXY = new int[numRows][];
-
-            int i = 0;
-            foreach (DataGridViewRow row in table.Rows)
+            if (table.Rows.Count > 0)
             {
-
-                int[] auxiliar = new int[2];
-                auxiliar[0] = (int)Convert.ToInt64(row.Cells["X"].Value);
-                auxiliar[1] = (int)Convert.ToInt64(row.Cells["Y"].Value);
-                matrizXY[i] = auxiliar;
-                i++;
-            }
-            int[][] matrizOrdenada = ordenarMatriz(matrizXY);
-            matriz = matrizOrdenada;
-            if (esEquidistante(matrizOrdenada))
-                textBox5.Text = "Si";
-            else
-                textBox5.Text = "No";
-            label3.Visible = true;
-            button3.Visible = true;
-            textBox2.Visible = true;
-            label5.Visible = true;
-            label6.Visible = true;
-            label7.Visible = true;
-            textBox3.Visible = true;
-            textBox4.Visible = true;
-            button5.Visible = true;
-            label8.Visible = true;
-            textBox5.Visible = true;
-            Lagrange lagrangecalculator = new Lagrange();
-            string resultado = lagrangecalculator.Calcular(matrizOrdenada);
-            if (button2.Text == "Recalcular")
-            {
-                textBox6.Visible = true;
-                label9.Visible = true;
-                if(textBox2.Text == resultado)
+                int i = 0;
+                foreach (DataGridViewRow row in table.Rows)
                 {
-                    textBox6.Text = "No";
+
+                    int[] auxiliar = new int[2];
+                    auxiliar[0] = (int)Convert.ToInt64(row.Cells["X"].Value);
+                    auxiliar[1] = (int)Convert.ToInt64(row.Cells["Y"].Value);
+                    matrizXY[i] = auxiliar;
+                    i++;
                 }
+                int[][] matrizOrdenada = ordenarMatriz(matrizXY);
+                matriz = matrizOrdenada;
+                if (esEquidistante(matrizOrdenada))
+                    textBox5.Text = "Si";
                 else
+                    textBox5.Text = "No";
+                label3.Visible = true;
+                button3.Visible = true;
+                textBox2.Visible = true;
+                label5.Visible = true;
+                label6.Visible = true;
+                label7.Visible = true;
+                textBox3.Visible = true;
+                textBox4.Visible = true;
+                button5.Visible = true;
+                label8.Visible = true;
+                textBox5.Visible = true;
+                Lagrange lagrangecalculator = new Lagrange();
+                string resultado = lagrangecalculator.Calcular(matrizOrdenada);
+                if (button2.Text == "Recalcular")
                 {
-                    textBox6.Text = "Si";
+                    textBox6.Visible = true;
+                    label9.Visible = true;
+                    if (textBox2.Text == resultado)
+                    {
+                        textBox6.Text = "No";
+                    }
+                    else
+                    {
+                        textBox6.Text = "Si";
+                    }
                 }
+                textBox2.Text = resultado;
+                button2.Text = "Recalcular";
+                listView1.Visible = false;
+                pasosmostrados = false;
             }
-            textBox2.Text = resultado;
-            button2.Text = "Recalcular";
-            listView1.Visible = false;
-            pasosmostrados = false;
+            else
+                MessageBox.Show("Tabla sin puntos", "ERROR",
+           MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
 
         }
 

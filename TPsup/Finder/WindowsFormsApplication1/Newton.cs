@@ -21,10 +21,10 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
             metodo = _metodo;
+            listView1.Visible = false;
             textBox1.Text = metodo;
             label3.Visible = false;
             button3.Visible = false;
-            listView1.Visible = true;
             txtPolinomioResultado.Visible = true;
             label5.Visible = false;
             label6.Visible = false;
@@ -32,6 +32,10 @@ namespace WindowsFormsApplication1
             textBox3.Visible = false;
             textBox4.Visible = false;
             button5.Visible = false;
+            textBox5.Visible = false;
+            textBox6.Visible = false;
+            label10.Visible = false;
+            label9.Visible = false;
         }
 
         private void Newton_Load(object sender, EventArgs e)
@@ -44,7 +48,19 @@ namespace WindowsFormsApplication1
 
         }
         private void label8_Click(object sender, EventArgs e) { }
-        private void button3_Click_1(object sender, EventArgs e) { }
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            if (pasosmostrados)
+            {
+                listView1.Visible = false;
+
+            }
+            else
+            {
+                listView1.Visible = true;
+
+            }
+        }
         private void button2_Click_1(object sender, EventArgs e) {
 
             int numRows = table.Rows.Count;
@@ -59,6 +75,23 @@ namespace WindowsFormsApplication1
                 auxiliar[1] = (int)Convert.ToInt64(row.Cells["Y"].Value);
                 matrizXY[i] = auxiliar;
                 i++;
+            }
+            if (button2.Text == "Calcular")
+            {
+                button2.Text = "Recalcular";
+            }
+            else if (button2.Text == "Recalcular")
+            {
+                label9.Visible = true;
+                textBox6.Visible = true;
+                if(matriz == matrizXY)
+                {
+                    textBox6.Text = "Si";
+                }
+                else
+                {
+                    textBox6.Text = "No";
+                }
             }
             matriz = matrizXY;
 
@@ -75,11 +108,28 @@ namespace WindowsFormsApplication1
 
             //Double[] x; con valores de x
             //Double[,] y con los valores de y en la columna 0
-            NewtonGregory newtonGregory = new NewtonGregory(x, y);
+            
             txtPolinomioResultado.Visible = true;
-            listView1.Visible = true;
+            label3.Visible = true;
+            textBox3.Visible = true;
+            textBox4.Visible = true;
+            label5.Visible = true;
+            button3.Visible = true;
+            label7.Visible = true;
+            textBox5.Visible = true;
+            int[][] matrizOrdenada = new int[matriz.Length][];
+            matrizOrdenada = ordenarMatriz(matriz);
+            if (esEquidistante(matrizOrdenada))
+            {
+                textBox5.Text = "Si";
+            }
+            else
+            {
+                textBox5.Text = "No";
+            }
             if (comboBox1.Text == "Progresivo")
             {
+                NewtonGregory newtonGregory = new NewtonGregory(x, y);
                 newtonGregory.calcularValoresProgresivos();
                 List<Polinomio> listaPolinomios = newtonGregory.obtenerListaDePolinomios();
                 for (int j = 0; j < cantidadDeElementos; j++)
@@ -94,10 +144,26 @@ namespace WindowsFormsApplication1
                     }
                     
                 }
-
-
-
             }
+            else if(comboBox1.Text == "Regresivo")
+            {
+                NewtonGregoryRegresivo newtonGregory = new NewtonGregoryRegresivo(x, y);
+                newtonGregory.calcularValoresRegresivos();
+                List<Polinomio> listaPolinomios = newtonGregory.obtenerListaDePolinomios();
+                for (int j = 0; j < cantidadDeElementos; j++)
+                {
+                    if ((j + 1) < cantidadDeElementos)
+                    {
+                        txtPolinomioResultado.Text += listaPolinomios[j] + " + ";
+                    }
+                    else
+                    {
+                        txtPolinomioResultado.Text += listaPolinomios[j];
+                    }
+
+                }
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -223,6 +289,84 @@ namespace WindowsFormsApplication1
                     MessageBox.Show("Tabla sin puntos", "ERROR",
                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+        }
+        private int[][] ordenarMatriz(int[][] matrix)
+        {
+            int[] aux = new int[2];
+            int length = matrix.Length;
+            int a = 0;
+            while (a != length)
+            {
+                if (a == 0)
+                {
+                    a++;
+                }
+                else if (matrix[a][0] < matrix[a - 1][0])
+                {
+                    aux = matrix[a - 1];
+                    matrix[a - 1] = matrix[a];
+                    matrix[a] = aux;
+                    a--;
+                }
+                else
+                {
+                    a++;
+                }
+            }
+            return matrix;
+        }
+        private Boolean esEquidistante(int[][] matrix)
+        {
+            Boolean result = true;
+            int a = 1;
+            int distance = 0;
+            for (a = 1; a < matrix.Length; a++)
+            {
+                if (distance == 0)
+                {
+                    distance = matrix[a][0] - matrix[a - 1][0];
+                }
+                else
+                {
+                    int newDistance = matrix[a][0] - matrix[a - 1][0];
+                    if (newDistance != distance)
+                    {
+                        result = false;
+                        break;
+                    }
+                }
+            }
+            return result;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
 
         }
     }   
