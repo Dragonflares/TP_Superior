@@ -201,7 +201,7 @@ namespace WindowsFormsApplication1
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Environment.Exit(1);
         }
 
         private int[][] ordenarMatriz(int[][] matrix)

@@ -187,7 +187,7 @@ namespace WindowsFormsApplication1
             Console.WriteLine("\n Interpolacion en " + valorAInterpolar + " es " + Math.Round(sum, 6));
         }*/
 
-        public void calcularPolinomioEn(double punto, List<Polinomio> listaPolinomios)
+        public double calcularPolinomioEn(double punto, List<Polinomio> listaPolinomios)
         {
 
             double acumulador = 0;
@@ -197,6 +197,8 @@ namespace WindowsFormsApplication1
                 acumulador += evaluarUnPolinomio(listaPolinomios[i], punto);
             }
             Console.WriteLine(acumulador);
+
+            return acumulador;
 
         }
         public double evaluarUnPolinomio(Polinomio poli, double punto)

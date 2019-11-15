@@ -16,6 +16,8 @@ namespace WindowsFormsApplication1
         private String metodo;
         private int[][] matriz;
         private Boolean pasosmostrados = false;
+        private NewtonGregory newtonGregory;
+        private NewtonGregoryRegresivo newtonGregoryRegre;
 
         public Newton(String _metodo)
         {
@@ -70,7 +72,8 @@ namespace WindowsFormsApplication1
 
             int numRows = table.Rows.Count;
             int[][] matrizXY = new int[numRows][];
-
+            String valorViejo = txtPolinomioResultado.Text;
+            txtPolinomioResultado.Text = "";
             int i = 0;
             foreach (DataGridViewRow row in table.Rows)
             {
@@ -136,7 +139,7 @@ namespace WindowsFormsApplication1
             }
             if (comboBox1.Text == "Progresivo")
             {
-                NewtonGregory newtonGregory = new NewtonGregory(x, y);
+                newtonGregory = new NewtonGregory(x, y);
                 newtonGregory.calcularValoresProgresivos();
                 List<Polinomio> listaPolinomios = newtonGregory.obtenerListaDePolinomios();
                 for (int j = 0; j < cantidadDeElementos; j++)
@@ -159,9 +162,9 @@ namespace WindowsFormsApplication1
             }
             else if(comboBox1.Text == "Regresivo")
             {
-                NewtonGregoryRegresivo newtonGregory = new NewtonGregoryRegresivo(x, y);
-                newtonGregory.calcularValoresRegresivos();
-                List<Polinomio> listaPolinomios = newtonGregory.obtenerListaDePolinomios();
+                newtonGregoryRegre = new NewtonGregoryRegresivo(x, y);
+                newtonGregoryRegre.calcularValoresRegresivos();
+                List<Polinomio> listaPolinomios = newtonGregoryRegre.obtenerListaDePolinomios();
                 for (int j = 0; j < cantidadDeElementos; j++)
                 {
                     if ((j + 1) < cantidadDeElementos)
@@ -174,13 +177,12 @@ namespace WindowsFormsApplication1
                     }
 
                 }
-                double[] coe = newtonGregory.obtenerCoeficientesRegre();
+                double[] coe = newtonGregoryRegre.obtenerCoeficientesRegre();
                 for (i = 0; i < coe.Length; i++)
                 {
                     textBox2.Text += "A" + i + ": " + Convert.ToString(coe[i]) + "  ";
                 }
             }
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -242,6 +244,7 @@ namespace WindowsFormsApplication1
             textBox3.Visible = true;
             textBox4.Visible = true;
             button5.Visible = true;
+            label6.Visible = true;
             
             
           //  textBox2.Text = lagrangecalculator.Calcular(matrizXY);
@@ -382,12 +385,42 @@ namespace WindowsFormsApplication1
 
         private void button5_Click_1(object sender, EventArgs e)
         {
+            if (textBox4.Text == "")
+            {
+                new AdvertenciaXinvalido("Usted no ingresó un valor de k.").Show(this);
+            }
+            else
+            {
+                if (comboBox1.Text == "Progresivo")
+                {
+                    textBox3.Visible = true;
+                    int k = (int)Convert.ToInt64(textBox4.Text);
+                    double res = newtonGregory.calcularPolinomioEn(k, newtonGregory.obtenerListaDePolinomios());
+                    textBox3.Text = Convert.ToString(res);
+                    label7.Visible = true;
+                }
+                else
+                {
+                    textBox3.Visible = true;
+                    int k = (int)Convert.ToInt64(textBox4.Text);
+                    double res = newtonGregoryRegre.calcularPolinomioEn(k, newtonGregoryRegre.obtenerListaDePolinomios());
+                    textBox3.Text = Convert.ToString(res);
+                    label7.Visible = true;
+                }
+                
+                
 
+            }
         }
 
         private void label11_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(1);
         }
     }   
 }
