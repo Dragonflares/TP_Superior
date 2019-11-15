@@ -81,7 +81,8 @@ namespace WindowsFormsApplication1
 
             int numRows = table.Rows.Count;
             int[][] matrizXY = new int[numRows][];
-
+            String valorViejo = txtPolinomioResultado.Text;
+            txtPolinomioResultado.Text = "";
             int i = 0;
             foreach (DataGridViewRow row in table.Rows)
             {
@@ -180,6 +181,15 @@ namespace WindowsFormsApplication1
 
                 }
             }
+            if (txtPolinomioResultado.Text == valorViejo)
+            {
+                MessageBox.Show("No cambio el polinomio");
+            }
+            else
+            {
+                MessageBox.Show("Si cambio el polinomio");
+            }
+
 
         }
 
