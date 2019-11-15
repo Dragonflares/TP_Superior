@@ -16,6 +16,7 @@ namespace WindowsFormsApplication1
         private String metodo;
         private int[][] matriz;
         private Boolean pasosmostrados = false;
+        private NewtonGregory newtonGregory;
 
         public Newton(String _metodo)
         {
@@ -132,7 +133,7 @@ namespace WindowsFormsApplication1
             }
             if (comboBox1.Text == "Progresivo")
             {
-                NewtonGregory newtonGregory = new NewtonGregory(x, y);
+                newtonGregory = new NewtonGregory(x, y);
                 newtonGregory.calcularValoresProgresivos();
                 List<Polinomio> listaPolinomios = newtonGregory.obtenerListaDePolinomios();
                 for (int j = 0; j < cantidadDeElementos; j++)
@@ -368,7 +369,20 @@ namespace WindowsFormsApplication1
 
         private void button5_Click_1(object sender, EventArgs e)
         {
+            if (textBox4.Text == "")
+            {
+                new AdvertenciaXinvalido("Usted ingresó no ingresó un valor de k.").Show(this);
+            }
+            else
+            {
+                textBox3.Visible = true;
+                int k = (int)Convert.ToInt64(textBox4.Text);
+                double res = newtonGregory.calcularPolinomioEn(k, newtonGregory.obtenerListaDePolinomios());
+                textBox3.Text = Convert.ToString(res);
+                label7.Visible = true;
+                
 
+            }
         }
 
         private void label11_Click(object sender, EventArgs e)
