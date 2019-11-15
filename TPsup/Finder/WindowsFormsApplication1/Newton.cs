@@ -113,6 +113,7 @@ namespace WindowsFormsApplication1
             label3.Visible = true;
             textBox3.Visible = true;
             textBox4.Visible = true;
+            button5.Visible = true;
             label5.Visible = true;
             button3.Visible = true;
             label7.Visible = true;
