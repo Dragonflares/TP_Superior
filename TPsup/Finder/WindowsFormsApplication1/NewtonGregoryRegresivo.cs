@@ -11,12 +11,14 @@ namespace WindowsFormsApplication1
         double[] x;
         double[,] y;
         int cantidadDeElementos;
+        double distanciaEntrePuntosX;
 
         public NewtonGregoryRegresivo(double[] valoresX, double[,] matrizY)
         {
             x = valoresX;
             y = matrizY;
             cantidadDeElementos = x.Length;
+            distanciaEntrePuntosX = x[1] - x[0];
         }
 
         public double[,] obtenerValoresRegresivos()
@@ -163,12 +165,12 @@ namespace WindowsFormsApplication1
 
         public double[] obtenerCoeficientesRegre()
         {
-            double h = 1;
+            
             double[] coeficientesRegre = new double[cantidadDeElementos];
 
             for (int i = 0; i < cantidadDeElementos; i++)
             {
-                coeficientesRegre[i] = Math.Round(y[cantidadDeElementos - 1, i] / (factorial(i) * Math.Pow(h, i)), 3);
+                coeficientesRegre[i] = Math.Round(y[cantidadDeElementos - 1, i] / (factorial(i) * Math.Pow(distanciaEntrePuntosX, i)), 3);
             }
             return coeficientesRegre;
         }

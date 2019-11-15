@@ -9,13 +9,14 @@ namespace WindowsFormsApplication1
         double[] x; //Vector con los valores de X
         double[,] y; //Matriz con las restas finitas y los valores de Y en la columna 0
         int cantidadDeElementos;
-        double valorPolinomioEnK = 0;
+        double distanciaEntrePuntosX;
 
         public NewtonGregory(double[] valoresX, double[,] matrizY)
         {
             x = valoresX;
             y = matrizY;
             cantidadDeElementos = x.Length;
+            distanciaEntrePuntosX = x[1] - x[0];
         }
         public double[,] obtenerValoresProgresivos()
         {
@@ -150,12 +151,12 @@ namespace WindowsFormsApplication1
         public double[] obtenerCoeficientes()
         {
             //este H hay que calcularlo
-            double h = 1;
+            
             double[] coeficientes = new double[cantidadDeElementos];
 
             for (int i = 0; i < cantidadDeElementos; i++)
             {
-                coeficientes[i] = Math.Round(y[0, i] / (factorial(i) * Math.Pow(h, i)), 3);
+                coeficientes[i] = Math.Round(y[0, i] / (factorial(i) * Math.Pow(distanciaEntrePuntosX, i)), 3);
             }
             return coeficientes;
         }
