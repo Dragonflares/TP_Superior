@@ -38,6 +38,7 @@ namespace WindowsFormsApplication1
             label9.Visible = false;
             coef.Visible = false;
             textBox2.Visible = false;
+            textBox5.Visible = false;
         }
 
         private void Newton_Load(object sender, EventArgs e)
@@ -60,6 +61,8 @@ namespace WindowsFormsApplication1
             else
             {
                 listView1.Visible = true;
+                coef.Visible = true;
+                textBox2.Visible = true;
 
             }
         }
@@ -120,6 +123,7 @@ namespace WindowsFormsApplication1
             button3.Visible = true;
             label7.Visible = true;
             textBox5.Visible = true;
+            label10.Visible = true;
             int[][] matrizOrdenada = new int[matriz.Length][];
             matrizOrdenada = ordenarMatriz(matriz);
             if (esEquidistante(matrizOrdenada))
@@ -147,6 +151,11 @@ namespace WindowsFormsApplication1
                     }
                     
                 }
+                double[] coe = newtonGregory.obtenerCoeficientes();
+                for (i = 0; i < coe.Length; i++)
+                {
+                    textBox2.Text += "A" + i + ": " + Convert.ToString(coe[i]) + "  ";
+                }
             }
             else if(comboBox1.Text == "Regresivo")
             {
@@ -164,6 +173,11 @@ namespace WindowsFormsApplication1
                         txtPolinomioResultado.Text += listaPolinomios[j];
                     }
 
+                }
+                double[] coe = newtonGregory.obtenerCoeficientesRegre();
+                for (i = 0; i < coe.Length; i++)
+                {
+                    textBox2.Text += "A" + i + ": " + Convert.ToString(coe[i]) + "  ";
                 }
             }
 
