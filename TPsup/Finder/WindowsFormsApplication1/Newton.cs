@@ -17,6 +17,7 @@ namespace WindowsFormsApplication1
         private int[][] matriz;
         private Boolean pasosmostrados = false;
         private NewtonGregory newtonGregory;
+        int cantidadDeElementos = 0;
 
         public Newton(String _metodo)
         {
@@ -63,6 +64,18 @@ namespace WindowsFormsApplication1
                 listView1.Visible = true;
 
             }
+            double[,] y = newtonGregory.obtenerValoresProgresivos();
+            for (int i = 0; i < cantidadDeElementos; i++)
+            {
+                for (int j = 0; j < cantidadDeElementos - i; j++)
+                {
+                    ListViewItem listitem = new ListViewItem(Convert.ToString(y[i, j]));
+                    listView1.Items.Add(listitem);
+                }
+                    
+            }
+
+
         }
         private void button2_Click_1(object sender, EventArgs e) {
 
@@ -99,7 +112,7 @@ namespace WindowsFormsApplication1
             matriz = matrizXY;
 
 
-            int cantidadDeElementos = table.Rows.Count;
+            cantidadDeElementos = table.Rows.Count;
             double[] x = new double[cantidadDeElementos];
             double[,] y = new double[cantidadDeElementos, cantidadDeElementos];
             for (int j = 0; j < cantidadDeElementos; j++)
@@ -393,6 +406,11 @@ namespace WindowsFormsApplication1
         private void button4_Click(object sender, EventArgs e)
         {
             Environment.Exit(1);
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }   
 }
