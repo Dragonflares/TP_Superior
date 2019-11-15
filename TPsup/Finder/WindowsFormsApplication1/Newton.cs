@@ -261,15 +261,16 @@ namespace WindowsFormsApplication1
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Lagrange lagrangecalculator = new Lagrange();
             if (textBox4.Text == "")
             {
                 new AdvertenciaXinvalido("Usted ingresó no ingresó un valor de k.").Show(this);
             }
             else
             {
+                textBox3.Visible = true;
+                label7.Visible = true;
                 int k = (int)Convert.ToInt64(textBox4.Text);
-                textBox3.Text = lagrangecalculator.CalcularEnPunto(k, matriz).ToString();
+                
             }
 
         }
