@@ -18,6 +18,11 @@ namespace WindowsFormsApplication1
             y = matrizY;
             cantidadDeElementos = x.Length;
         }
+
+        public double[,] obtenerValoresRegresivos()
+        {
+            return y;
+        }
         static double calculoCoeficienteA(double u, int n)
         {
             double temp = u;

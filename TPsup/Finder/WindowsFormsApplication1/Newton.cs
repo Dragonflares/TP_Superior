@@ -68,12 +68,22 @@ namespace WindowsFormsApplication1
                 textBox2.Visible = true;
 
             }
-            double[,] y = newtonGregory.obtenerValoresProgresivos();
+            double[,] MatrizDeValores;
+            if (comboBox1.Text == "Progresivo")
+            {
+                MatrizDeValores = newtonGregory.obtenerValoresProgresivos();
+            }
+            else
+            {
+                MatrizDeValores = newtonGregoryRegre.obtenerValoresRegresivos();
+            }
+            listView1.Items.Clear();
+            
             for (int i = 0; i < cantidadDeElementos; i++)
             {
                 for (int j = 0; j < cantidadDeElementos - i; j++)
                 {
-                    ListViewItem listitem = new ListViewItem(Convert.ToString(y[i, j]));
+                    ListViewItem listitem = new ListViewItem(Convert.ToString(MatrizDeValores[i, j]));
                     listView1.Items.Add(listitem);
                 }
                     
@@ -168,6 +178,7 @@ namespace WindowsFormsApplication1
                     
                 }
                 double[] coe = newtonGregory.obtenerCoeficientes();
+                textBox2.Text = "";
                 for (i = 0; i < coe.Length; i++)
                 {
                     textBox2.Text += "A" + i + ": " + Convert.ToString(coe[i]) + "  ";
@@ -191,6 +202,7 @@ namespace WindowsFormsApplication1
 
                 }
                 double[] coe = newtonGregoryRegre.obtenerCoeficientesRegre();
+                textBox2.Text = "";
                 for (i = 0; i < coe.Length; i++)
                 {
                     textBox2.Text += "A" + i + ": " + Convert.ToString(coe[i]) + "  ";
