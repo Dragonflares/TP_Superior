@@ -34,4 +34,8 @@ D:\Drizz\Documentos\Visual Studio git repos\TP_Superior\TPsup\Finder\WindowsForm
 D:\Drizz\Documentos\Visual Studio git repos\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
 C:\Users\German\Desktop\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AdvertenciaXinvalido.resources
 C:\Users\German\Desktop\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Newton.resources
+<<<<<<< Updated upstream
 C:\Users\German\Desktop\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+=======
+D:\Drizz\Documentos\Visual Studio git repos\TP_Superior\TPsup\Finder\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Newton.resources
+>>>>>>> Stashed changes

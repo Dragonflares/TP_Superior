@@ -55,6 +55,8 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +72,7 @@
             this.table.Location = new System.Drawing.Point(46, 115);
             this.table.Name = "table";
             this.table.ReadOnly = true;
-            this.table.Size = new System.Drawing.Size(348, 159);
+            this.table.Size = new System.Drawing.Size(462, 159);
             this.table.TabIndex = 1;
             this.table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.table_CellContentClick);
             // 
@@ -178,7 +180,7 @@
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(46, 348);
+            this.listView1.Location = new System.Drawing.Point(187, 348);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(207, 72);
             this.listView1.TabIndex = 15;
@@ -187,7 +189,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(301, 304);
+            this.button3.Location = new System.Drawing.Point(415, 303);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(93, 23);
             this.button3.TabIndex = 12;
@@ -210,12 +212,12 @@
             this.textBox2.Location = new System.Drawing.Point(46, 306);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(207, 20);
+            this.textBox2.Size = new System.Drawing.Size(351, 20);
             this.textBox2.TabIndex = 16;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(301, 400);
+            this.textBox4.Location = new System.Drawing.Point(423, 400);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(75, 20);
             this.textBox4.TabIndex = 18;
@@ -224,7 +226,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(302, 339);
+            this.label5.Location = new System.Drawing.Point(416, 348);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(92, 30);
             this.label5.TabIndex = 19;
@@ -233,7 +235,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(298, 384);
+            this.label6.Location = new System.Drawing.Point(420, 384);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 13);
             this.label6.TabIndex = 20;
@@ -243,7 +245,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(298, 453);
+            this.label7.Location = new System.Drawing.Point(420, 449);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 15);
             this.label7.TabIndex = 21;
@@ -251,7 +253,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(301, 471);
+            this.textBox3.Location = new System.Drawing.Point(423, 471);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(75, 20);
@@ -259,7 +261,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(301, 426);
+            this.button5.Location = new System.Drawing.Point(423, 423);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 23;
@@ -269,7 +271,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(46, 471);
+            this.textBox5.Location = new System.Drawing.Point(46, 381);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(110, 20);
@@ -277,7 +279,7 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(178, 471);
+            this.textBox6.Location = new System.Drawing.Point(178, 467);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(75, 20);
@@ -287,7 +289,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(43, 434);
+            this.label8.Location = new System.Drawing.Point(43, 348);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(98, 30);
             this.label8.TabIndex = 26;
@@ -303,11 +305,32 @@
             this.label9.TabIndex = 27;
             this.label9.Text = "¿Cambió el\r\npolinomio?";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(43, 434);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(64, 30);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Grado del \r\npolinomio";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(46, 467);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(75, 20);
+            this.textBox7.TabIndex = 29;
+            // 
             // IngresoDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(441, 527);
+            this.ClientSize = new System.Drawing.Size(545, 527);
+            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox6);
@@ -370,5 +393,7 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox7;
     }
 }
