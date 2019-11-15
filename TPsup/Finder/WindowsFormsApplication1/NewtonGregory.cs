@@ -6,8 +6,8 @@ namespace WindowsFormsApplication1
 {
     class NewtonGregory
     {
-        double[] x;
-        double[,] y;
+        double[] x; //Vector con los valores de X
+        double[,] y; //Matriz con las restas finitas y los valores de Y en la columna 0
         int cantidadDeElementos;
         double valorPolinomioEnK = 0;
 
@@ -16,6 +16,10 @@ namespace WindowsFormsApplication1
             x = valoresX;
             y = matrizY;
             cantidadDeElementos = x.Length;
+        }
+        public double[,] obtenerValoresProgresivos()
+        {
+            return y;
         }
         static double calculoCoeficienteA(double u, int n)
         {
@@ -145,7 +149,7 @@ namespace WindowsFormsApplication1
         }
         public double[] obtenerCoeficientes()
         {
-
+            //este H hay que calcularlo
             double h = 1;
             double[] coeficientes = new double[cantidadDeElementos];
 
