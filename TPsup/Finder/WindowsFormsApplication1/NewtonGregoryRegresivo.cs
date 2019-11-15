@@ -51,7 +51,7 @@ namespace WindowsFormsApplication1
             for (int i = 1; i < cantidadDeElementos; i++)
             {
                 for (int j = cantidadDeElementos - 1; j >= i; j--)
-                    y[j, i] = y[j, i - 1] - y[j - 1, i - 1];
+                    y[j, i] = ((y[j, i - 1] - y[j - 1, i - 1]) / (x[j] - x[j - i]));
             }
 
             this.tablaDeDiferenciasRegre();
@@ -165,12 +165,12 @@ namespace WindowsFormsApplication1
 
         public double[] obtenerCoeficientesRegre()
         {
-            
+
             double[] coeficientesRegre = new double[cantidadDeElementos];
 
             for (int i = 0; i < cantidadDeElementos; i++)
             {
-                coeficientesRegre[i] = Math.Round(y[cantidadDeElementos - 1, i] / (factorial(i) * Math.Pow(distanciaEntrePuntosX, i)), 3);
+                coeficientesRegre[i] = Math.Round(y[cantidadDeElementos - 1, i], 3);
             }
             return coeficientesRegre;
         }

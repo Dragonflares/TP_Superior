@@ -21,18 +21,23 @@ namespace WindowsFormsApplication1
         {
             String valor = comboBox1.Text;
 
-            if (valor == "Lagrange") {
+            if (valor == "Lagrange")
+            {
                 new IngresoDatos(comboBox1.Text).Show(this);
-            }else if(valor == "Newton-Gregory") {
+            }
+            else if (valor == "Newton-Gregory")
+            {
                 new Newton(comboBox1.Text).Show(this);
-
-
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un metodo");
             }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
 
         }
     }

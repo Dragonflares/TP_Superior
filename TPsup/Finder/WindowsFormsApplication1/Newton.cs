@@ -28,7 +28,7 @@ namespace WindowsFormsApplication1
             textBox1.Text = metodo;
             label3.Visible = false;
             button3.Visible = false;
-            txtPolinomioResultado.Visible = true;
+            txtPolinomioResultado.Visible = false;
             label5.Visible = false;
             label6.Visible = false;
             label7.Visible = false;
@@ -78,7 +78,7 @@ namespace WindowsFormsApplication1
                 MatrizDeValores = newtonGregoryRegre.obtenerValoresRegresivos();
             }
             listView1.Items.Clear();
-            
+
             for (int i = 0; i < cantidadDeElementos; i++)
             {
                 for (int j = 0; j < cantidadDeElementos - i; j++)
@@ -86,13 +86,14 @@ namespace WindowsFormsApplication1
                     ListViewItem listitem = new ListViewItem(Convert.ToString(MatrizDeValores[i, j]));
                     listView1.Items.Add(listitem);
                 }
-                    
+
             }
 
 
         }
-        private void button2_Click_1(object sender, EventArgs e) {
-            String valorViejo;              
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            String valorViejo;
             if (comboBox1.Text != "" && table.Rows.Count > 0)
             {
                 int numRows = table.Rows.Count;
@@ -109,23 +110,23 @@ namespace WindowsFormsApplication1
                     matrizXY[i] = auxiliar;
                     i++;
                 }
-               /* if (button2.Text == "Calcular")
-                {
-                    button2.Text = "Recalcular";
-                }
-                else if (button2.Text == "Recalcular")
-                {
-                    label9.Visible = true;
-                    textBox6.Visible = true;
-                    if (valorViejo == txtPolinomioResultado.Text)
-                    {
-                        textBox6.Text = "Si";
-                    }
-                    else
-                    {
-                        textBox6.Text = "No";
-                    }
-                } */
+                /* if (button2.Text == "Calcular")
+                 {
+                     button2.Text = "Recalcular";
+                 }
+                 else if (button2.Text == "Recalcular")
+                 {
+                     label9.Visible = true;
+                     textBox6.Visible = true;
+                     if (valorViejo == txtPolinomioResultado.Text)
+                     {
+                         textBox6.Text = "Si";
+                     }
+                     else
+                     {
+                         textBox6.Text = "No";
+                     }
+                 } */
                 matriz = matrizXY;
 
 
@@ -152,6 +153,7 @@ namespace WindowsFormsApplication1
                 label7.Visible = true;
                 textBox5.Visible = true;
                 label10.Visible = true;
+                txtPolinomioResultado.Visible = true;
                 int[][] matrizOrdenada = new int[matriz.Length][];
                 matrizOrdenada = ordenarMatriz(matriz);
                 if (esEquidistante(matrizOrdenada))
@@ -229,17 +231,17 @@ namespace WindowsFormsApplication1
                     }
 
 
-            }
-            else
-            {
+                }
+                else
+                {
 
-                MessageBox.Show("Elija una opcion o agregue puntos a la tabla");
+                    MessageBox.Show("Elija una opcion o agregue puntos a la tabla");
+                }
+
+
             }
 
-            
-            }
-        
-        
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -278,37 +280,43 @@ namespace WindowsFormsApplication1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int numRows = table.Rows.Count;
-            int[][] matrizXY = new int[numRows][];
-
-            int i = 0;
-            foreach (DataGridViewRow row in table.Rows)
+            if (comboBox1.Text == "")
             {
-
-                int[] auxiliar = new int[2];
-                auxiliar[0] = (int)Convert.ToInt64(row.Cells["X"].Value);
-                auxiliar[1] = (int)Convert.ToInt64(row.Cells["Y"].Value);
-                matrizXY[i] = auxiliar;
-                i++;
+                MessageBox.Show("Debe seleccionar una opcion");
             }
-            matriz = matrizXY;
-            label3.Visible = true;
-            button3.Visible = true;
-            txtPolinomioResultado.Visible = true;
-            label5.Visible = true;
-            label6.Visible = true;
-            label7.Visible = true;
-            textBox3.Visible = true;
-            textBox4.Visible = true;
-            button5.Visible = true;
-            label6.Visible = true;
-            label9.Visible = true;
-            
-          //  textBox2.Text = lagrangecalculator.Calcular(matrizXY);
-            button2.Text = "Recalcular";
-            listView1.Visible = true;
-            pasosmostrados = false;
+            else
+            {
+                int numRows = table.Rows.Count;
+                int[][] matrizXY = new int[numRows][];
 
+                int i = 0;
+                foreach (DataGridViewRow row in table.Rows)
+                {
+
+                    int[] auxiliar = new int[2];
+                    auxiliar[0] = (int)Convert.ToInt64(row.Cells["X"].Value);
+                    auxiliar[1] = (int)Convert.ToInt64(row.Cells["Y"].Value);
+                    matrizXY[i] = auxiliar;
+                    i++;
+                }
+                matriz = matrizXY;
+                label3.Visible = true;
+                button3.Visible = true;
+                txtPolinomioResultado.Visible = true;
+                label5.Visible = true;
+                label6.Visible = true;
+                label7.Visible = true;
+                textBox3.Visible = true;
+                textBox4.Visible = true;
+                button5.Visible = true;
+                label6.Visible = true;
+                label9.Visible = true;
+
+                //  textBox2.Text = lagrangecalculator.Calcular(matrizXY);
+                button2.Text = "Recalcular";
+                listView1.Visible = true;
+                pasosmostrados = false;
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -344,7 +352,7 @@ namespace WindowsFormsApplication1
                 textBox3.Visible = true;
                 label7.Visible = true;
                 int k = (int)Convert.ToInt64(textBox4.Text);
-                
+
             }
 
         }
@@ -464,8 +472,8 @@ namespace WindowsFormsApplication1
                     textBox3.Text = Convert.ToString(res);
                     label7.Visible = true;
                 }
-                
-                
+
+
 
             }
         }
@@ -501,5 +509,5 @@ namespace WindowsFormsApplication1
                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-    }   
+    }
 }

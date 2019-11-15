@@ -44,12 +44,12 @@ namespace WindowsFormsApplication1
         {
 
             Console.WriteLine("Muestro tabla de diferencias finitas");
-            // Calculo de la tabla de diferencias finitas
+            // Calculo de la tabla de diferencias finitas divididas
             for (int i = 1; i < cantidadDeElementos; i++)
             {
                 for (int j = 0; j < x.Length - i; j++)
 
-                    y[j, i] = (y[j + 1, i - 1] - y[j, i - 1]);
+                    y[j, i] = (y[j + 1, i - 1] - y[j, i - 1]) / (x[i + j] - x[j]);
 
 
             }
@@ -61,7 +61,7 @@ namespace WindowsFormsApplication1
         public void tablaDeDiferencias()
         {
 
-            
+
             for (int i = 0; i < cantidadDeElementos; i++)
             {
                 Console.Write(x[i] + "\t");
@@ -151,12 +151,12 @@ namespace WindowsFormsApplication1
         public double[] obtenerCoeficientes()
         {
             //este H hay que calcularlo
-            
+
             double[] coeficientes = new double[cantidadDeElementos];
 
             for (int i = 0; i < cantidadDeElementos; i++)
             {
-                coeficientes[i] = Math.Round(y[0, i] / (factorial(i) * Math.Pow(distanciaEntrePuntosX, i)), 3);
+                coeficientes[i] = Math.Round(y[0, i], 3);
             }
             return coeficientes;
         }
