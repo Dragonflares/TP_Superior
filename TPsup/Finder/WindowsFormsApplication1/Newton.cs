@@ -92,122 +92,154 @@ namespace WindowsFormsApplication1
 
         }
         private void button2_Click_1(object sender, EventArgs e) {
-
-            int numRows = table.Rows.Count;
-            int[][] matrizXY = new int[numRows][];
-            String valorViejo = txtPolinomioResultado.Text;
-            txtPolinomioResultado.Text = "";
-            int i = 0;
-            foreach (DataGridViewRow row in table.Rows)
+            String valorViejo;              
+            if (comboBox1.Text != "" && table.Rows.Count > 0)
             {
-
-                int[] auxiliar = new int[2];
-                auxiliar[0] = (int)Convert.ToInt64(row.Cells["X"].Value);
-                auxiliar[1] = (int)Convert.ToInt64(row.Cells["Y"].Value);
-                matrizXY[i] = auxiliar;
-                i++;
-            }
-            if (button2.Text == "Calcular")
-            {
-                button2.Text = "Recalcular";
-            }
-            else if (button2.Text == "Recalcular")
-            {
-                label9.Visible = true;
-                textBox6.Visible = true;
-                if(matriz == matrizXY)
+                int numRows = table.Rows.Count;
+                int[][] matrizXY = new int[numRows][];
+                valorViejo = txtPolinomioResultado.Text;
+                txtPolinomioResultado.Text = "";
+                int i = 0;
+                foreach (DataGridViewRow row in table.Rows)
                 {
-                    textBox6.Text = "Si";
+
+                    int[] auxiliar = new int[2];
+                    auxiliar[0] = (int)Convert.ToInt64(row.Cells["X"].Value);
+                    auxiliar[1] = (int)Convert.ToInt64(row.Cells["Y"].Value);
+                    matrizXY[i] = auxiliar;
+                    i++;
+                }
+               /* if (button2.Text == "Calcular")
+                {
+                    button2.Text = "Recalcular";
+                }
+                else if (button2.Text == "Recalcular")
+                {
+                    label9.Visible = true;
+                    textBox6.Visible = true;
+                    if (valorViejo == txtPolinomioResultado.Text)
+                    {
+                        textBox6.Text = "Si";
+                    }
+                    else
+                    {
+                        textBox6.Text = "No";
+                    }
+                } */
+                matriz = matrizXY;
+
+
+                cantidadDeElementos = table.Rows.Count;
+                double[] x = new double[cantidadDeElementos];
+                double[,] y = new double[cantidadDeElementos, cantidadDeElementos];
+                for (int j = 0; j < cantidadDeElementos; j++)
+                {
+                    x[j] = Convert.ToDouble(matriz[j][0]);
+                    y[j, 0] = Convert.ToDouble(matriz[j][1]);
+
+                }
+
+                //Double[] x; con valores de x
+                //Double[,] y con los valores de y en la columna 0
+
+                txtPolinomioResultado.Visible = true;
+                label3.Visible = true;
+                textBox3.Visible = true;
+                textBox4.Visible = true;
+                button5.Visible = true;
+                label5.Visible = true;
+                button3.Visible = true;
+                label7.Visible = true;
+                textBox5.Visible = true;
+                label10.Visible = true;
+                int[][] matrizOrdenada = new int[matriz.Length][];
+                matrizOrdenada = ordenarMatriz(matriz);
+                if (esEquidistante(matrizOrdenada))
+                {
+                    textBox5.Text = "Si";
                 }
                 else
                 {
-                    textBox6.Text = "No";
+                    textBox5.Text = "No";
                 }
-            }
-            matriz = matrizXY;
+                if (comboBox1.Text == "Progresivo")
+                {
+                    newtonGregory = new NewtonGregory(x, y);
+                    newtonGregory.calcularValoresProgresivos();
+                    List<Polinomio> listaPolinomios = newtonGregory.obtenerListaDePolinomios();
+                    for (int j = 0; j < cantidadDeElementos; j++)
+                    {
+                        if ((j + 1) < cantidadDeElementos)
+                        {
+                            txtPolinomioResultado.Text += listaPolinomios[j] + " + ";
+                        }
+                        else
+                        {
+                            txtPolinomioResultado.Text += listaPolinomios[j];
+                        }
+
+                    }
+                    double[] coe = newtonGregory.obtenerCoeficientes();
+                    textBox2.Text = "";
+                    for (i = 0; i < coe.Length; i++)
+                    {
+                        textBox2.Text += "A" + i + ": " + Convert.ToString(coe[i]) + "  ";
+                    }
+                }
+                else if (comboBox1.Text == "Regresivo")
+                {
+                    newtonGregoryRegre = new NewtonGregoryRegresivo(x, y);
+                    newtonGregoryRegre.calcularValoresRegresivos();
+                    List<Polinomio> listaPolinomios = newtonGregoryRegre.obtenerListaDePolinomios();
+                    for (int j = 0; j < cantidadDeElementos; j++)
+                    {
+                        if ((j + 1) < cantidadDeElementos)
+                        {
+                            txtPolinomioResultado.Text += listaPolinomios[j] + " + ";
+                        }
+                        else
+                        {
+                            txtPolinomioResultado.Text += listaPolinomios[j];
+                        }
+
+                    }
+                    double[] coe = newtonGregoryRegre.obtenerCoeficientesRegre();
+                    textBox2.Text = "";
+                    for (i = 0; i < coe.Length; i++)
+                    {
+                        textBox2.Text += "A" + i + ": " + Convert.ToString(coe[i]) + "  ";
+                    }
+                }
+
+                if (button2.Text == "Calcular")
+                {
+                    button2.Text = "Recalcular";
+                }
+                else if (button2.Text == "Recalcular")
+                {
+                    label9.Visible = true;
+                    textBox6.Visible = true;
+                    if (valorViejo == txtPolinomioResultado.Text)
+                    {
+                        textBox6.Text = "No";
+                    }
+                    else
+                    {
+                        textBox6.Text = "Si";
+                    }
 
 
-            cantidadDeElementos = table.Rows.Count;
-            double[] x = new double[cantidadDeElementos];
-            double[,] y = new double[cantidadDeElementos, cantidadDeElementos];
-            for (int j = 0; j < cantidadDeElementos; j++)
-            {
-                x[j] = Convert.ToDouble(matriz[j][0]);
-                y[j, 0] = Convert.ToDouble(matriz[j][1]);
-
-            }
-
-            //Double[] x; con valores de x
-            //Double[,] y con los valores de y en la columna 0
-            
-            txtPolinomioResultado.Visible = true;
-            label3.Visible = true;
-            textBox3.Visible = true;
-            textBox4.Visible = true;
-            button5.Visible = true;
-            label5.Visible = true;
-            button3.Visible = true;
-            label7.Visible = true;
-            textBox5.Visible = true;
-            label10.Visible = true;
-            int[][] matrizOrdenada = new int[matriz.Length][];
-            matrizOrdenada = ordenarMatriz(matriz);
-            if (esEquidistante(matrizOrdenada))
-            {
-                textBox5.Text = "Si";
             }
             else
             {
-                textBox5.Text = "No";
-            }
-            if (comboBox1.Text == "Progresivo")
-            {
-                newtonGregory = new NewtonGregory(x, y);
-                newtonGregory.calcularValoresProgresivos();
-                List<Polinomio> listaPolinomios = newtonGregory.obtenerListaDePolinomios();
-                for (int j = 0; j < cantidadDeElementos; j++)
-                {
-                    if ((j + 1) < cantidadDeElementos)
-                    {
-                        txtPolinomioResultado.Text += listaPolinomios[j] + " + ";
-                    }
-                    else
-                    {
-                        txtPolinomioResultado.Text += listaPolinomios[j];
-                    }
-                    
-                }
-                double[] coe = newtonGregory.obtenerCoeficientes();
-                textBox2.Text = "";
-                for (i = 0; i < coe.Length; i++)
-                {
-                    textBox2.Text += "A" + i + ": " + Convert.ToString(coe[i]) + "  ";
-                }
-            }
-            else if(comboBox1.Text == "Regresivo")
-            {
-                newtonGregoryRegre = new NewtonGregoryRegresivo(x, y);
-                newtonGregoryRegre.calcularValoresRegresivos();
-                List<Polinomio> listaPolinomios = newtonGregoryRegre.obtenerListaDePolinomios();
-                for (int j = 0; j < cantidadDeElementos; j++)
-                {
-                    if ((j + 1) < cantidadDeElementos)
-                    {
-                        txtPolinomioResultado.Text += listaPolinomios[j] + " + ";
-                    }
-                    else
-                    {
-                        txtPolinomioResultado.Text += listaPolinomios[j];
-                    }
 
-                }
-                double[] coe = newtonGregoryRegre.obtenerCoeficientesRegre();
-                textBox2.Text = "";
-                for (i = 0; i < coe.Length; i++)
-                {
-                    textBox2.Text += "A" + i + ": " + Convert.ToString(coe[i]) + "  ";
-                }
+                MessageBox.Show("Elija una opcion o agregue puntos a la tabla");
             }
+
+            
+            }
+        
+        
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -270,7 +302,7 @@ namespace WindowsFormsApplication1
             textBox4.Visible = true;
             button5.Visible = true;
             label6.Visible = true;
-            
+            label9.Visible = true;
             
           //  textBox2.Text = lagrangecalculator.Calcular(matrizXY);
             button2.Text = "Recalcular";
@@ -451,6 +483,23 @@ namespace WindowsFormsApplication1
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void table_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+            if (e.ColumnIndex == table.Columns["Borrar"].Index)
+            {
+
+                if (table.Rows.Count > 0)
+                    table.Rows.RemoveAt(e.RowIndex);
+                else
+                    MessageBox.Show("Tabla sin puntos", "ERROR",
+               MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }   
 }

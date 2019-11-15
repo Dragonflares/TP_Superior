@@ -255,6 +255,7 @@ namespace WindowsFormsApplication1
             this.table.ReadOnly = true;
             this.table.Size = new System.Drawing.Size(348, 159);
             this.table.TabIndex = 24;
+            this.table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.table_CellContentClick_1);
             // 
             // X
             // 
