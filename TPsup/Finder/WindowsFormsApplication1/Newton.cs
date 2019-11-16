@@ -24,7 +24,7 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
             metodo = _metodo;
-            listView1.Visible = false;
+            dataGridView1.Visible = false;
             textBox1.Text = metodo;
             label3.Visible = false;
             button3.Visible = false;
@@ -58,12 +58,11 @@ namespace WindowsFormsApplication1
         {
             if (pasosmostrados)
             {
-                listView1.Visible = false;
-
+                dataGridView1.Visible = false;
             }
             else
             {
-                listView1.Visible = true;
+                dataGridView1.Visible = true;
                 coef.Visible = true;
                 textBox2.Visible = true;
 
@@ -77,9 +76,32 @@ namespace WindowsFormsApplication1
             {
                 MatrizDeValores = newtonGregoryRegre.obtenerValoresRegresivos();
             }
-            listView1.Items.Clear();
+            dataGridView1.Rows.Clear();
 
-            for (int i = 0; i < cantidadDeElementos; i++)
+            // agregar valores a la tabla
+            dataGridView1.ColumnCount = cantidadDeElementos + 1;
+            dataGridView1.RowCount = cantidadDeElementos + 1;
+
+            dataGridView1[0, 0].Value = "X";
+            dataGridView1[1, 0].Value = "Y";
+
+            for (int i = 1; i < dataGridView1.ColumnCount; i++)
+            {  
+                dataGridView1[0, i].Value = matriz[i -1][0];
+                
+                for (int j = 1; j < dataGridView1.ColumnCount; j++)
+                {
+                    if(j+1 < dataGridView1.RowCount)
+                    {
+                        dataGridView1[j+1, 0].Value = "";  
+                    }
+                    dataGridView1[j, i].Value = MatrizDeValores[i -1, j -1];
+                }
+                   
+            }
+
+
+            /*for (int i = 0; i < cantidadDeElementos; i++)
             {
                 for (int j = 0; j < cantidadDeElementos - i; j++)
                 {
@@ -87,7 +109,7 @@ namespace WindowsFormsApplication1
                     listView1.Items.Add(listitem);
                 }
 
-            }
+            }*/
 
 
         }
@@ -314,7 +336,7 @@ namespace WindowsFormsApplication1
 
                 //  textBox2.Text = lagrangecalculator.Calcular(matrizXY);
                 button2.Text = "Recalcular";
-                listView1.Visible = true;
+                dataGridView1.Visible = true;
                 pasosmostrados = false;
             }
         }
@@ -329,15 +351,8 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                listView1.Visible = true;
-                Lagrange lagrangecalculator = new Lagrange();
-                List<string> lis = lagrangecalculator.ListaLis(matriz);
-                foreach (string li in lis)
-                {
-                    ListViewItem some = new ListViewItem(li);
-                    listView1.Items.Add(some);
-                }
-                pasosmostrados = true;
+                dataGridView1.Visible = true;
+                //llenar la tabla
             }
         }
 

@@ -37,7 +37,6 @@ namespace WindowsFormsApplication1
             this.label5 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.txtPolinomioResultado = new System.Windows.Forms.TextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -61,7 +60,9 @@ namespace WindowsFormsApplication1
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.coef = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button5
@@ -125,22 +126,12 @@ namespace WindowsFormsApplication1
             // 
             // txtPolinomioResultado
             // 
-            this.txtPolinomioResultado.Location = new System.Drawing.Point(48, 322);
+            this.txtPolinomioResultado.Location = new System.Drawing.Point(48, 314);
             this.txtPolinomioResultado.Name = "txtPolinomioResultado";
             this.txtPolinomioResultado.ReadOnly = true;
             this.txtPolinomioResultado.Size = new System.Drawing.Size(351, 20);
             this.txtPolinomioResultado.TabIndex = 37;
             this.txtPolinomioResultado.TextChanged += new System.EventHandler(this.txtPolinomioResultado_TextChanged);
-            // 
-            // listView1
-            // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(48, 364);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(310, 119);
-            this.listView1.TabIndex = 36;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -341,7 +332,7 @@ namespace WindowsFormsApplication1
             // 
             this.coef.AutoSize = true;
             this.coef.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.coef.Location = new System.Drawing.Point(45, 505);
+            this.coef.Location = new System.Drawing.Point(45, 517);
             this.coef.Name = "coef";
             this.coef.Size = new System.Drawing.Size(136, 15);
             this.coef.TabIndex = 50;
@@ -350,17 +341,29 @@ namespace WindowsFormsApplication1
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(48, 526);
+            this.textBox2.Location = new System.Drawing.Point(48, 538);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(310, 20);
             this.textBox2.TabIndex = 51;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(48, 350);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(348, 159);
+            this.dataGridView1.TabIndex = 52;
             // 
             // Newton
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(527, 624);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.coef);
             this.Controls.Add(this.label9);
@@ -376,7 +379,6 @@ namespace WindowsFormsApplication1
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.txtPolinomioResultado);
-            this.Controls.Add(this.listView1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label4);
@@ -393,6 +395,7 @@ namespace WindowsFormsApplication1
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Newton_Load);
             ((System.ComponentModel.ISupportInitialize)(this.table)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -412,7 +415,6 @@ namespace WindowsFormsApplication1
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox txtPolinomioResultado;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label4;
@@ -436,5 +438,6 @@ namespace WindowsFormsApplication1
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label coef;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
