@@ -79,9 +79,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(64, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 25);
+            this.label2.Size = new System.Drawing.Size(117, 25);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Finder Frba";
+            this.label2.Text = "Finter Frba";
             // 
             // label3
             // 
@@ -159,7 +159,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Name = "Inicio";
-            this.Text = "Finder Frba";
+            this.Text = "Finter Frba";
             this.ResumeLayout(false);
             this.PerformLayout();
 

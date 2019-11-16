@@ -415,7 +415,7 @@ namespace WindowsFormsApplication1
             this.Controls.Add(this.button1);
             this.Controls.Add(this.table);
             this.Name = "Newton";
-            this.Text = "Form1";
+            this.Text = "Newton Gregory";
             this.Load += new System.EventHandler(this.Newton_Load);
             ((System.ComponentModel.ISupportInitialize)(this.table)).EndInit();
             this.ResumeLayout(false);
