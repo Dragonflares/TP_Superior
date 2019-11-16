@@ -61,6 +61,8 @@ namespace WindowsFormsApplication1
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.coef = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lblgradoPolinomio = new System.Windows.Forms.Label();
+            this.txtgradoPolinomio = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.SuspendLayout();
             // 
@@ -178,6 +180,7 @@ namespace WindowsFormsApplication1
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 32;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button4
             // 
@@ -290,6 +293,7 @@ namespace WindowsFormsApplication1
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(93, 21);
             this.comboBox1.TabIndex = 44;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -356,11 +360,32 @@ namespace WindowsFormsApplication1
             this.textBox2.Size = new System.Drawing.Size(310, 20);
             this.textBox2.TabIndex = 51;
             // 
+            // lblgradoPolinomio
+            // 
+            this.lblgradoPolinomio.AutoSize = true;
+            this.lblgradoPolinomio.Location = new System.Drawing.Point(303, 561);
+            this.lblgradoPolinomio.Name = "lblgradoPolinomio";
+            this.lblgradoPolinomio.Size = new System.Drawing.Size(55, 26);
+            this.lblgradoPolinomio.TabIndex = 52;
+            this.lblgradoPolinomio.Text = "Grado del\r\nPolinomio:";
+            this.lblgradoPolinomio.Click += new System.EventHandler(this.label11_Click_1);
+            // 
+            // txtgradoPolinomio
+            // 
+            this.txtgradoPolinomio.BackColor = System.Drawing.SystemColors.Control;
+            this.txtgradoPolinomio.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.txtgradoPolinomio.Location = new System.Drawing.Point(306, 598);
+            this.txtgradoPolinomio.Name = "txtgradoPolinomio";
+            this.txtgradoPolinomio.Size = new System.Drawing.Size(52, 20);
+            this.txtgradoPolinomio.TabIndex = 53;
+            // 
             // Newton
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(527, 624);
+            this.Controls.Add(this.txtgradoPolinomio);
+            this.Controls.Add(this.lblgradoPolinomio);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.coef);
             this.Controls.Add(this.label9);
@@ -436,5 +461,7 @@ namespace WindowsFormsApplication1
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label coef;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label lblgradoPolinomio;
+        private System.Windows.Forms.TextBox txtgradoPolinomio;
     }
 }
