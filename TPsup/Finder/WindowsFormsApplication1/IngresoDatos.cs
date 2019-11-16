@@ -35,6 +35,8 @@ namespace WindowsFormsApplication1
             textBox6.Visible = false;
             label8.Visible = false;
             label9.Visible = false;
+            label10.Visible = false;
+            textBox7.Visible = false;
         }
 
         private void IngresoDatos_Load(object sender, EventArgs e)
@@ -114,6 +116,8 @@ namespace WindowsFormsApplication1
                 button5.Visible = true;
                 label8.Visible = true;
                 textBox5.Visible = true;
+                label10.Visible = true;
+                textBox7.Visible = true;
                 Lagrange lagrangecalculator = new Lagrange();
                 string resultado = lagrangecalculator.Calcular(matrizOrdenada);
                 if (button2.Text == "Recalcular")
@@ -128,6 +132,81 @@ namespace WindowsFormsApplication1
                     {
                         textBox6.Text = "Si";
                     }
+                }
+                int[,] chequeador = new int[matrizXY.Length, 2];
+                int a = 0;
+                string aux = "";
+                Boolean leer = false;
+                Boolean numerador = false;
+                int poschequeador = 0;
+                while(a <= resultado.Length)
+                {
+                    if( a == resultado.Length)
+                    {
+                        leer = false;
+                        if (numerador)
+                        {
+                            chequeador[poschequeador, 0] = Convert.ToInt32(aux);
+                            numerador = false;
+                            poschequeador++;
+                        }
+                        else
+                        {
+                            chequeador[poschequeador, 1] = Convert.ToInt32(aux);
+                            numerador = true;
+                        }
+                        aux = "";
+                    }
+                    else if (resultado[a] == '/' || resultado[a] == '*')
+                    {
+                        leer = true;
+                    }
+                    else if((resultado[a] == ')' || resultado[a] == ' ') && leer)
+                    {
+                        leer = false;
+                        if (numerador)
+                        {
+                            chequeador[poschequeador, 0] = Convert.ToInt32(aux);
+                            numerador = false;
+                            poschequeador++;
+                        }
+                        else
+                        {
+                            chequeador[poschequeador, 1] = Convert.ToInt32(aux);
+                            numerador = true;
+                        }
+                        aux = "";
+                    }
+                    else if (leer)
+                    {
+                        char[] auxbonus = new char[1];
+                        auxbonus[0] = resultado[a];
+                        string bonus = new string(auxbonus);
+                        aux = aux + bonus;
+                    }
+                    a++;
+                }
+                int calcular = 0;
+                double[] goodboi = new double[poschequeador];
+                for(calcular = 0; calcular < poschequeador; calcular++)
+                {
+                    double valor1 = chequeador[calcular, 0];
+                    double valor2 = chequeador[calcular, 1];
+                    double resultado4 = valor1 / valor2;
+                    goodboi[calcular] = resultado4;
+                }
+                double sumador = 0;
+                for (calcular = 0; calcular < poschequeador; calcular++)
+                {
+                    sumador += goodboi[calcular];
+                }
+                if(sumador < 0 || sumador > 0)
+                {
+                    textBox7.Text = (matrizXY.Length - 1).ToString();
+                }
+                else
+                {
+                    textBox7.Text = (matrizXY.Length - 2).ToString();
                 }
                 textBox2.Text = resultado;
                 button2.Text = "Recalcular";
@@ -251,6 +330,11 @@ namespace WindowsFormsApplication1
                 }
             }
             return result;
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

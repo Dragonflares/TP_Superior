@@ -42,6 +42,10 @@ namespace WindowsFormsApplication1
             coef.Visible = false;
             textBox2.Visible = false;
             textBox5.Visible = false;
+
+            txtgradoPolinomio.Visible = false;
+            lblgradoPolinomio.Visible = false;
+
         }
 
         private void Newton_Load(object sender, EventArgs e)
@@ -116,7 +120,7 @@ namespace WindowsFormsApplication1
         private void button2_Click_1(object sender, EventArgs e)
         {
             String valorViejo;
-            if (comboBox1.Text != "" && table.Rows.Count > 0)
+            if (comboBox1.Text != "" && table.Rows.Count > 1)
             {
                 int numRows = table.Rows.Count;
                 int[][] matrizXY = new int[numRows][];
@@ -191,6 +195,7 @@ namespace WindowsFormsApplication1
                     newtonGregory = new NewtonGregory(x, y);
                     newtonGregory.calcularValoresProgresivos();
                     List<Polinomio> listaPolinomios = newtonGregory.obtenerListaDePolinomios();
+                    int gradoPolinomio = 0;
                     for (int j = 0; j < cantidadDeElementos; j++)
                     {
                         if ((j + 1) < cantidadDeElementos)
@@ -201,8 +206,16 @@ namespace WindowsFormsApplication1
                         {
                             txtPolinomioResultado.Text += listaPolinomios[j];
                         }
-
+                        if (listaPolinomios[j].grado > gradoPolinomio)
+                        {
+                            gradoPolinomio = listaPolinomios[j].grado;
+                        }
+                        
                     }
+                    txtgradoPolinomio.Text = Convert.ToString(gradoPolinomio);
+                    txtgradoPolinomio.Visible = true;
+                    lblgradoPolinomio.Visible = true;
+
                     double[] coe = newtonGregory.obtenerCoeficientes();
                     textBox2.Text = "";
                     for (i = 0; i < coe.Length; i++)
@@ -215,6 +228,7 @@ namespace WindowsFormsApplication1
                     newtonGregoryRegre = new NewtonGregoryRegresivo(x, y);
                     newtonGregoryRegre.calcularValoresRegresivos();
                     List<Polinomio> listaPolinomios = newtonGregoryRegre.obtenerListaDePolinomios();
+                    int gradoPolinomio = 0;
                     for (int j = 0; j < cantidadDeElementos; j++)
                     {
                         if ((j + 1) < cantidadDeElementos)
@@ -225,8 +239,14 @@ namespace WindowsFormsApplication1
                         {
                             txtPolinomioResultado.Text += listaPolinomios[j];
                         }
-
+                        if (listaPolinomios[j].grado > gradoPolinomio)
+                        {
+                            gradoPolinomio = listaPolinomios[j].grado;
+                        }
                     }
+                    txtgradoPolinomio.Text = Convert.ToString(gradoPolinomio);
+                    txtgradoPolinomio.Visible = true;
+                    lblgradoPolinomio.Visible = true;
                     double[] coe = newtonGregoryRegre.obtenerCoeficientesRegre();
                     textBox2.Text = "";
                     for (i = 0; i < coe.Length; i++)
@@ -261,6 +281,10 @@ namespace WindowsFormsApplication1
                 }
 
 
+            }
+            else
+            {
+                MessageBox.Show("Faltan datos para empezar a calcular");
             }
 
 
@@ -523,6 +547,21 @@ namespace WindowsFormsApplication1
                     MessageBox.Show("Tabla sin puntos", "ERROR",
                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void label11_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
